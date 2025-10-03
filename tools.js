@@ -1,0 +1,103 @@
+`use strict`;
+
+const {createConnection} = require(`mysql`);
+
+const {  existsSync, mkdir, readdir, readFile, readFileSync, stat, unlinkSync, writeFileSync } = require(`fs`);
+
+const { createHash } = require(`crypto`);
+
+class Sql {
+  
+  constructor (Arg) {
+
+    this.credentials = Arg[0];
+  }
+
+  Sql (Arg) {
+
+    return createConnection(this.credentials).query(Arg[0], (A, B, C) => Arg[1]([A, B, C]));
+  }
+
+  pulls (Arg) {
+
+    this.credentials.database = `sq`;
+
+    this.Sql([readFileSync(`bin/sql/tables.sql`, {encoding: `utf8`}), (Raw) => {
+
+      let Fields = {};
+
+      Raw[2].forEach((Field, field) => {
+
+        Fields[Field[0].table] = [[], {}];
+
+        Raw[1][field].forEach(Obj => {
+
+          Fields[Field[0].table][0].push(JSON.parse(Obj.json));
+
+          Fields[Field[0].table][1][JSON.parse(Obj.json).md] = JSON.parse(Obj.json);
+        });
+      });
+
+      Arg(Fields);
+    }]);
+  }
+
+  places (Arg) {
+
+    this.credentials.database = `sq`;
+
+    this.Sql([{
+      sql: `update ${Arg[0]} set json = ? where json = ?`,
+      values: [JSON.stringify(Arg[1]), JSON.stringify(Arg[2])]}, (Raw) => Arg[3](Raw)]);
+  }
+
+  putlist (Arg) {
+
+    this.credentials.database = `sq`;
+
+    let Put = [];
+
+    Arg[1].forEach(MD => {
+
+      Put.push([new Tools().coats(MD)]);
+    });
+
+    this.Sql([{
+      sql: `insert into ?? (json) values?`,
+      values: [Arg[0], Put]}, (Raw) => Arg[2](Raw)]);     
+  }
+
+  puts (Arg) {
+
+    this.credentials.database = `sq`;
+
+    this.Sql([{
+      sql: `insert into ?? set ?`,
+      values: [Arg[0], {json: JSON.stringify(Arg[1])}]}, (Raw) => Arg[2](Raw)]);      
+  }
+}
+
+class Tools {
+
+  constructor () {}
+
+  coats (types) { return JSON.stringify(types) }
+
+  typen (coat) { return JSON.parse(coat) }
+}
+
+let Constants = {}
+
+module.exports = {
+
+  Constants: Constants,
+  
+  Sql : new Sql([{
+    host: `127.0.0.1`,
+    user: `root`,
+    password: `Mann2asugo`,
+    multipleStatements: true
+  }]),
+
+  Tools : new Tools()
+}
