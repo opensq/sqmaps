@@ -28,7 +28,13 @@ class Route {
 
     if (State.length === 4 && State[3] === ``) {
 
-      document.querySelector(`#app`).innerHTML = `<svg></svg>${View.ModelDOM([Models.app.footnav()])}`;
+      View.pop();
+
+      View.DOM([`#app`, Models.app.main()]);
+
+      //document.querySelector(`#app`).innerHTML = `<svg></svg>${View.ModelDOM([Models.app.footnav()])}`;
+
+      /**
 
       let SVGScale = false;
 
@@ -93,6 +99,7 @@ class Route {
           d3.selectAll(`path`).attr(`d`, path);
         }
       }).catch(error => {throw error});
+      **/
     }
   }
 }
