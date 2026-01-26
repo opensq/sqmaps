@@ -93,7 +93,7 @@ let Models = {
                 [`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M5 14 5 38`}]]], 
               [`g`, {style: {[`text-transform`]: `capitalize`}}, 
                 [[`text`, {fill: `#000`, x: 1, y: 50, [`font-size`]: `${11.88}px`}, `2.`], 
-                [`text`, {fill: `#000`, x: 20, y: 50, [`font-size`]: `${11.88}px`}, `new york`], 
+                [`text`, {fill: `#000`, x: 20, y: 50, [`font-size`]: `${11.88}px`}, `tennessee`], 
                 [`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M5 54 5 78`}]]], 
               [`g`, {style: {[`text-transform`]: `capitalize`}}, 
                 [[`text`, {fill: `#000`, x: 1, y: 90, [`font-size`]: `${11.88}px`}, `3.`], 
