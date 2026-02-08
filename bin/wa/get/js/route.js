@@ -34,13 +34,13 @@ class Route {
 
       //document.querySelector(`#app`).innerHTML = `<svg></svg>${View.ModelDOM([Models.app.footnav()])}`;
 
-      /**
+      /**/
 
       let SVGScale = false;
 
       d3.json(`/wa/data/maps/cb_2024_us_state_20m.json`).then(json => {
       
-        let projection = d3.geoMercator().scale(400).translate([Constants.DOMXY[0] / 2, Constants.DOMXY[1] / 2]).center([-115.723, 52]),
+        let projection = d3.geoMercator().scale(12000).translate([Constants.DOMXY[0] / 2, Constants.DOMXY[1] / 2]).center([-122.0842, 37.2]),
 
         path = d3.geoPath().projection(projection);
 
@@ -59,7 +59,60 @@ class Route {
 
         SVGDOM.selectAll(`path`).data(ADMI).enter().append(`path`).attr(`d`, path).attr(`class`, `adm_1`).attr(`info`, Obj => {return Tools.coats([Obj.properties.NAME])});
 
-        SVG.select(`g`).attr(`fill`, `#d7d7dd`).attr(`fill`, `#cccccc`).attr(`stroke`, `#fff`).style(`stroke-width`, 1);
+        SVG.select(`g`).attr(`fill`, `#f2f3f0`).attr(`stroke`, `#fff`).style(`stroke-width`, 1);
+
+        SVG.append(`circle`)
+          .attr(`cx`, projection([-122.15308, 37.48116])[0])
+          .attr(`cy`, projection([-122.15308, 37.48116])[1])
+          .attr(`r`, 25)
+          .attr(`fill`, `#ef1f2f`)
+          .attr(`stroke`, `#fff`)
+
+        SVG.append(`path`)
+          .attr(`d`, `M${projection([-122.15308, 37.48116])[0] + 26} ${projection([-122.15308, 37.48116])[1]} ${projection([-122.15308, 37.48116])[0] + 50} ${projection([-122.15308, 37.48116])[1]}`)
+          .attr(`stroke`, `#000`)
+
+        SVG.append(`text`)
+          .attr(`x`, projection([-122.15308, 37.48116])[0] + 54) 
+          .attr(`y`, projection([-122.15308, 37.48116])[1])
+          .attr(`font-size`, `11px`)
+          .text(`Meta, 25M+`)
+
+        SVG.append(`circle`)
+          .attr(`cx`, projection([-122.0842, 37.4231])[0])
+          .attr(`cy`, projection([-122.0842, 37.4231])[1])
+          .attr(`r`, 5)
+          .attr(`fill`, `#ef1f2f`)
+          .attr(`stroke`, `#fff`)
+
+        SVG.append(`path`)
+          .attr(`d`, `M${projection([-122.0842, 37.4231])[0] + 6} ${projection([-122.0842, 37.4231])[1]} ${projection([-122.0842, 37.4231])[0] + 50} ${projection([-122.0842, 37.4231])[1]}`)
+          .attr(`stroke`, `#000`)
+
+        SVG.append(`text`)
+          .attr(`x`, projection([-122.0842, 37.4231])[0] + 54) 
+          .attr(`y`, projection([-122.0842, 37.4231])[1])
+          .attr(`font-size`, `11px`)
+          .text(`Google, 5M+`)
+
+        SVG.append(`circle`)
+          .attr(`cx`, projection([-122.409746, 37.792405])[0])
+          .attr(`cy`, projection([-122.409746, 37.792405])[1])
+          .attr(`r`, 2.5)
+          .attr(`fill`, `#ef1f2f`)
+          .attr(`stroke`, `#fff`)
+
+        SVG.append(`path`)
+          .attr(`d`, `M${projection([-122.409746, 37.792405])[0] + 2.6} ${projection([-122.409746, 37.792405])[1]} ${projection([-122.409746, 37.792405])[0] + 50} ${projection([-122.409746, 37.792405])[1]}`)
+          .attr(`stroke`, `#000`)
+
+        SVG.append(`text`)
+          .attr(`x`, projection([-122.409746, 37.792405])[0] + 54) 
+          .attr(`y`, projection([-122.409746, 37.792405])[1])
+          .attr(`font-size`, `11px`)
+          .text(`SV Angel, 100K+`)
+
+        /*
 
         let scaleSVG = d3.zoom().scaleExtent([1, 48]).on(`zoom`, zSVG);
 
@@ -98,10 +151,27 @@ class Route {
 
           d3.selectAll(`path`).attr(`d`, path);
         }
+
+        */
       }).catch(error => {throw error});
-      **/
+      /**/
+    }
+
+    if (State.length === 5) {
+
+      if (Open[State[4]] && State[3] === Open[State[4]][0]) {
+
+        document.title = `${Open[State[4]][1]} | Opensq`
+      }
     }
   }
 }
 
 Route = new Route();
+
+const Open = {
+
+  [1770566116156]: [
+    `ca`, 
+    `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`]
+} 
