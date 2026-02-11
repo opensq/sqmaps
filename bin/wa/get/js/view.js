@@ -123,7 +123,31 @@ let Models = {
                       [[`a`, {href: `/${Open[Situ[0]][0]}`}, Constants.pseudo[Open[Situ[0]][0]]]]]]], 
                                 [`div`, {class: `_gZz`}, 
                                     [[`svg`, {id: `multiClose`, viewbox: `0 0 24 24`, style: {cursor: `pointer`, height: `${12}px`, width: `${12}px`}}, 
-                                        [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, m: `M0 6 12 18 24 6`}]]]]]]]]]]]]]]
+                                        [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, m: `M0 6 12 18 24 6`}]]]]]]]]]]]]]];
+    },
+
+    metal: (Arg) => {
+
+      let Obj = {
+        geo: Open[Arg[0]][0],
+        lead: Open[Arg[0]][1],
+      };
+
+      return [[`svg`, {style: {background: `#c4d8dd`}}], 
+        [`section`, {style: {margin: `${12}px`, position: `fixed`, left: 0, top: 0, width: `max-content`, [`z-index`]: 20}}, 
+          [[`svg`, {style: {[`font-family`]: `aspg`, height: `${180}px`, [`text-transform`]: `uppercase`, width: `${150}px`}}, []]]], 
+        [`footer`, {id: `foot`, style: {bckground: `rgba(${217}, ${217}, ${217}, ${0.8})`, bottom: 0, position: `fixed`, width: `${100}%`, [`z-index`]: 18}}, 
+          [[`div`, {style: {bottom: 0, left: 0, margin: `auto`, [`max-width`]: `${640}px`, position: `absolute`, right: 0, width: `${100}%`}}, 
+            [[`div`, {style: {width: `${100}%`}}, 
+              [[`div`, {class: `_gxM _geQ`, style: {[`border-bottom`]: `${1}px solid #ececec`, padding: `${10}px ${16}px`}}, 
+                [[`div`, {style: {width: `${95}%`}},  
+                  [[`a`, {href: `/${Obj.geo}/${Arg[0]}`}, 
+                    [[`h1`, {style: {color: `#000`, [`font-size`]: `${24}px`, [`font-weight`]: 600}}, Obj.lead]]],
+                    [`div`, {class: `_gxM _geQ`, style: {color: `#9d9d9d`, [`font-weight`]: 300, [`font-size`]: `${9}px`, [`margin-top`]: `${10}px`, [`text-transform`]: `uppercase`}}, 
+                      [[`a`, {href: `/${Obj.geo}`}, Constants.pseudo[Obj.geo]]]]]], 
+                                [`div`, {class: `_gZz`}, 
+                                    [[`svg`, {id: `multiClose`, viewbox: `0 0 24 24`, style: {cursor: `pointer`, height: `${12}px`, width: `${12}px`}}, 
+                                        [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, m: `M0 6 12 18 24 6`}]]]]]]]]]]]]]];
     }
   }
 };

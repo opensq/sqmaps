@@ -32,8 +32,6 @@ class Route {
 
       View.DOM([`#app`, Models.app.main()]);
 
-      //document.querySelector(`#app`).innerHTML = `<svg></svg>${View.ModelDOM([Models.app.footnav()])}`;
-
       /**/
 
       let SVGScale = false;
@@ -60,6 +58,8 @@ class Route {
         SVGDOM.selectAll(`path`).data(ADMI).enter().append(`path`).attr(`d`, path).attr(`class`, `adm_1`).attr(`info`, Obj => {return Tools.coats([Obj.properties.NAME])});
 
         SVG.select(`g`).attr(`fill`, `#f2f3f0`).attr(`stroke`, `#fff`).style(`stroke-width`, 1);
+
+        /**
 
         SVG.append(`circle`)
           .attr(`cx`, projection([-122.15308, 37.48116])[0])
@@ -111,6 +111,7 @@ class Route {
           .attr(`y`, projection([-122.409746, 37.792405])[1])
           .attr(`font-size`, `11px`)
           .text(`SV Angel, 100K+`)
+        **/
 
         /*
 
@@ -163,7 +164,20 @@ class Route {
 
       if (Open[State[4]] && State[3] === Open[State[4]][0]) {
 
-        document.title = `${Open[State[4]][1]} | Opensq`
+        document.title = `${Open[State[4]][1]} | Opensq`;
+
+        let Obj = {
+          geo: Open[State[4]][0],
+          lead: Open[State[4]][1], 
+          pin: Open[State[4]][2],
+          scale: Open[State[4]][3]
+        };
+
+        View.pop();
+
+        View.DOM([`#app`, Models.app.metal([State[4]])]);
+
+        Event.illustrate(Obj);
       }
     }
   }
@@ -175,6 +189,6 @@ const Open = {
 
   [1770566116156]: [
     `ca`, 
-    `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`],
-  [1770821887204]: [`ca`, `ICEout.tech Activism Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`]
+    `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`, [-122.0842, 37.2], 12000],
+  [1770821887204]: [`ca`, `ICEout.tech Activism Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`, [-122.0842, 37.2], 18000]
 } 
