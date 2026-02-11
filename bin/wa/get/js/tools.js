@@ -48,5 +48,9 @@ let Clients = sessionStorage;
 
 const Constants = {
 
+  pseudo: {
+    ca: `california`
+  },
+
   DOMXY: [parseInt(document.querySelector(`body`).clientWidth), parseInt(document.querySelector(`#app`).clientHeight)]
 }

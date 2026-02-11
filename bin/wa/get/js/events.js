@@ -15,6 +15,14 @@ class Event {
   /** **/
 
   app (Arg) {
+
+    document.querySelectorAll(`.atxt`).forEach(VAR => {
+
+      this.listen([VAR, `click`, S => {
+
+        window.location = VAR.getAttribute(`url`);
+      }]);
+    });
   }
 }
 

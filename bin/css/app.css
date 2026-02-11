@@ -537,7 +537,9 @@ body {
 
 #tx, #tx:visited {color: #48007c;}
 
-footer a:hover {text-decoration: underline;}
+.atxt {cursor: pointer;}
+
+.atxt:hover, footer a:hover {text-decoration: underline;}
 
 @media (min-width: 600px) {
 

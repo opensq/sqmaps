@@ -155,6 +155,8 @@ class Route {
         */
       }).catch(error => {throw error});
       /**/
+
+      Event.app()
     }
 
     if (State.length === 5) {
@@ -173,5 +175,6 @@ const Open = {
 
   [1770566116156]: [
     `ca`, 
-    `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`]
+    `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`],
+  [1770821887204]: [`ca`, `ICEout.tech Activism Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`]
 } 
