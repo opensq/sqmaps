@@ -191,5 +191,5 @@ const Open = {
   [1770566116156]: [
     `ca`, 
     `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`, [-122.0842, 37.2], 12000],
-  [1770821887204]: [`ca`, `ICEout.tech Activism Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`, [-122.15308, 37.48116], 32000]
+  [1770821887204]: [`ca`, `ICEout.tech Activism Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`, [-122.15308, 37.48116], 40000]
 } 
