@@ -170,7 +170,8 @@ class Route {
           geo: Open[State[4]][0],
           lead: Open[State[4]][1], 
           pin: Open[State[4]][2],
-          scale: Open[State[4]][3]
+          scale: Open[State[4]][3],
+          ts: State[4]
         };
 
         View.pop();
@@ -190,5 +191,5 @@ const Open = {
   [1770566116156]: [
     `ca`, 
     `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`, [-122.0842, 37.2], 12000],
-  [1770821887204]: [`ca`, `ICEout.tech Activism Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`, [-122.0842, 37.2], 18000]
+  [1770821887204]: [`ca`, `ICEout.tech Activism Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`, [-122.15308, 37.48116], 32000]
 } 

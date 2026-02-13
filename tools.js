@@ -99,8 +99,6 @@ class Tools {
 
       if (Value[3] && Value[4] && typeof parseFloat(Value[3]) === `number` && typeof parseFloat(Value[4]) === `number`) {
 
-          //Obj.SVG[`tally`] = {};
-
         if (Constants.geo[`${parseFloat(Value[3])}/${parseFloat(Value[4])}`]) {
 
           if (!Obj.SVG.tally[Constants.geo[`${parseFloat(Value[3])}/${parseFloat(Value[4])}`][0]]) {
@@ -111,17 +109,17 @@ class Tools {
           Obj.SVG.tally[Constants.geo[`${parseFloat(Value[3])}/${parseFloat(Value[4])}`][0]].push(Value)
         }
       }
-    });console.log(Obj.SVG.tally)
+    });
 
-    //writeFileSync(`bin/json/1770821887204.json`, this.coats(Obj));
+    writeFileSync(`bin/json/1770821887204.json`, this.coats(Obj));
   }
 }
 
 let Constants = {
 
   geo: {
-    [`37.4231/-122.0842`]: [`alphabet`],
-    [`37.48116/-122.15308`]: [`meta`]
+    [`-122.0842/37.4231`]: [`alphabet`],
+    [`-122.15308/37.48116`]: [`meta`]
   }
 }
 

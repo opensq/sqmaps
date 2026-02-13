@@ -79,7 +79,15 @@ class Route {
     }
   }
 
-  io (App) {}
+  io (App) {
+
+    App.on(`connection`, Polling => {
+
+      Polling.on(`data`, Arg => {
+
+        App.emit(`data`, [Arg[0], Tools.typen(readFileSync(`bin/json/${Arg[1]}.json`, {encoding: `utf8`}))])});
+    });
+  }
 }
 
 module.exports = new Route();

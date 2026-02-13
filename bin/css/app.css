@@ -539,7 +539,7 @@ body {
 
 .atxt {cursor: pointer;}
 
-.atxt:hover, footer a:hover {text-decoration: underline;}
+.atxt:hover, footer a:hover, .tally-txt:hover {text-decoration: underline;}
 
 @media (min-width: 600px) {
 
