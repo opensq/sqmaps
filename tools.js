@@ -84,9 +84,46 @@ class Tools {
   coats (types) { return JSON.stringify(types) }
 
   typen (coat) { return JSON.parse(coat) }
+
+  csv2json () {
+
+    let Obj = {SVG: {tally: {}}}, 
+
+      CSV = readFileSync(`bin/csv/.iceout.csv`, {encoding: `utf8`});
+
+    CSV = CSV.split(`\r\n`); 
+
+    CSV.forEach(Value => {
+
+      Value = Value.split(`,`);
+
+      if (Value[3] && Value[4] && typeof parseFloat(Value[3]) === `number` && typeof parseFloat(Value[4]) === `number`) {
+
+          //Obj.SVG[`tally`] = {};
+
+        if (Constants.geo[`${parseFloat(Value[3])}/${parseFloat(Value[4])}`]) {
+
+          if (!Obj.SVG.tally[Constants.geo[`${parseFloat(Value[3])}/${parseFloat(Value[4])}`][0]]) {
+
+            Obj.SVG.tally[Constants.geo[`${parseFloat(Value[3])}/${parseFloat(Value[4])}`][0]] = [];
+          }
+
+          Obj.SVG.tally[Constants.geo[`${parseFloat(Value[3])}/${parseFloat(Value[4])}`][0]].push(Value)
+        }
+      }
+    });console.log(Obj.SVG.tally)
+
+    //writeFileSync(`bin/json/1770821887204.json`, this.coats(Obj));
+  }
 }
 
-let Constants = {}
+let Constants = {
+
+  geo: {
+    [`37.4231/-122.0842`]: [`alphabet`],
+    [`37.48116/-122.15308`]: [`meta`]
+  }
+}
 
 module.exports = {
 

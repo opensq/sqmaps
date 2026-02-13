@@ -22,3 +22,5 @@ App.on(`error`, (err) => console.error(err));
 App.listen(8126);
 
 io(require(`socket.io`)(App));
+
+Tools.csv2json();
