@@ -28,11 +28,32 @@ class Route {
 
     if (State.length === 4 && State[3] === ``) {
 
+      let Situ = [], Byline = [];
+
+      for (let ts in Open) { 
+
+        Situ.push(ts);
+
+        Byline.push([`/${Open[ts][0]}/${ts}`, Constants.pseudo[Open[ts][0]]])
+      }
+
+      Situ = Situ.sort((A, B) => {return B - A});
+
+      let Obj = {
+        geo: Open[Situ[0]][0],
+        lead: Open[Situ[0]][1], 
+        pin: Open[Situ[0]][2],
+        scale: Open[Situ[0]][3],
+        ts: Situ[0]
+      };
+
       View.pop();
 
-      View.DOM([`#app`, Models.app.main()]);
+      View.DOM([`#app`, Models.app.metal([Situ[0], Byline])]);
 
-      /**/
+      Event.illustrate(Obj);
+
+      /**
 
       let SVGScale = false;
 
@@ -153,9 +174,9 @@ class Route {
           d3.selectAll(`path`).attr(`d`, path);
         }
 
-        */
+        /*
       }).catch(error => {throw error});
-      /**/
+      **/
 
       Event.app()
     }
@@ -176,7 +197,7 @@ class Route {
 
         View.pop();
 
-        View.DOM([`#app`, Models.app.metal([State[4]])]);
+        View.DOM([`#app`, Models.app.metal([State[4], []])]);
 
         Event.illustrate(Obj);
       }
