@@ -74,7 +74,46 @@ class Event {
                 .attr(`y`, S => {return projection(S[0]) [1] + 3})
                 .attr(`font-size`, `11px`)
                 .style(`text-transform`, `capitalize`)
-                .text(S => {return S[1]})
+                .text(S => {return S[1]});
+
+              document.querySelectorAll(`.tally-txt`).forEach(DOM => {
+
+                this.listen([DOM, `mouseover`, S => {
+
+                  let SX = parseFloat(DOM.getAttribute(`x`));
+
+                  document.querySelector(`#bubble`).style.left = `${SX + 10}px`;
+
+                  document.querySelector(`#bubble`).style.right = `unset`;
+
+                  if (SX > Constants.DOMXY[0]/2) {
+
+                    document.querySelector(`#bubble`).style.left = `unset`;
+
+                    document.querySelector(`#bubble`).style.right = `${(Constants.DOMXY[0] - SX) + 10}px`;
+                  }
+
+                  let SY = parseFloat(DOM.getAttribute(`y`));
+
+                  document.querySelector(`#bubble`).style.top = `${SY + 10}px`;
+
+                  document.querySelector(`#bubble`).style.bottom = `unset`;
+
+                  if (SY > Constants.DOMXY[1]/2) {
+
+                    document.querySelector(`#bubble`).style.top = `unset`;
+
+                    document.querySelector(`#bubble`).style.bottom = `${(Constants.DOMXY[1] - SY) + 10}px`;
+                  }
+
+                  document.querySelector(`#bubble`).style.display = `flex`
+                }]);
+
+                this.listen([DOM, `mouseleave`, S => {
+
+                  //document.querySelector(`#bubble`).style.display = `none`
+                }]);
+              });
             }
           }
         });

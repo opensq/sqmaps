@@ -147,7 +147,10 @@ let Models = {
                       [[`a`, {href: `/${Obj.geo}`}, Constants.pseudo[Obj.geo]]]]]], 
                                 [`div`, {class: `_gZz`}, 
                                     [[`svg`, {id: `multiClose`, viewbox: `0 0 24 24`, style: {cursor: `pointer`, height: `${12}px`, width: `${12}px`}}, 
-                                        [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, m: `M0 6 12 18 24 6`}]]]]]]]]]]]]]];
+                                        [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, m: `M0 6 12 18 24 6`}]]]]]]]]]]]]], 
+        [`div`, {id: `bubble`, style: {background: `#fff`, border: `${1}px solid #f0f0f0de`, [`border-radius`]: `${2}px`, [`box-shadow`]: `${0} ${8}px ${64}px ${4}px rgba(${10},${14},${29},${.08})`, display: `none`, [`font-size`]: `${11}px`, [`min-width`]: `${160}px`, position: `absolute`, left: 0, top: `${38}px`, [`z-index`]: 24}}, 
+          [[`div`, {style: {margin: `${2}px ${8}px`}}, 
+            [[`a`, {style: {color: `#111111`}}, `Data by Iceout.tech`]]]]]];
     }
   }
 };

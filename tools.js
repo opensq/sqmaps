@@ -91,6 +91,8 @@ class Tools {
 
       CSV = readFileSync(`bin/csv/.iceout.csv`, {encoding: `utf8`});
 
+    CSV = CSV.replaceAll(`\r`, ``);
+
     CSV = CSV.split(`\n`); 
 
     CSV.forEach(Value => {
