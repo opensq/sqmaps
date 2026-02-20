@@ -56,7 +56,7 @@ class Event {
               for (let dot in Obj[1].SVG.tally) {
 
                 Dot.push([
-                  [parseFloat(Obj[1].SVG.tally[dot][0][3]), parseFloat(Obj[1].SVG.tally[dot][0][4])], dot]);
+                  [parseFloat(Obj[1].SVG.tally[dot][0][3]), parseFloat(Obj[1].SVG.tally[dot][0][4])], dot, Obj[1].SVG.tally[dot].length]);
               }
 
               SVG.selectAll(`circle`).data(Dot)
@@ -72,6 +72,7 @@ class Event {
                 .attr(`class`, `tally-txt`)
                 .attr(`x`, S => {return projection(S[0]) [0] + 5})
                 .attr(`y`, S => {return projection(S[0]) [1] + 3})
+                .attr(`sum`, S => {return S[2]})
                 .attr(`font-size`, `11px`)
                 .style(`text-transform`, `capitalize`)
                 .text(S => {return S[1]});
@@ -79,6 +80,8 @@ class Event {
               document.querySelectorAll(`.tally-txt`).forEach(DOM => {
 
                 this.listen([DOM, `mouseover`, S => {
+
+                  document.querySelector(`#tally`).innerHTML = DOM.getAttribute(`sum`);
 
                   let SX = parseFloat(DOM.getAttribute(`x`));
 

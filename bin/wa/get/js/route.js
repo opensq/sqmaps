@@ -49,7 +49,7 @@ class Route {
 
       View.pop();
 
-      View.DOM([`#app`, Models.app.metal([Situ[0], Byline])]);
+      View.DOM([`#app`, Models.app.metal([Situ[0], Byline.reverse()])]);
 
       Event.illustrate(Obj);
 
@@ -212,5 +212,5 @@ const Open = {
   [1770566116156]: [
     `ca`, 
     `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`, [-122.0842, 37.2], 12000],
-  [1770821887204]: [`ca`, `ICEout.tech Activism Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`, [-122.15308, 37.48116], 40000]
+  [1770821887204]: [`ca`, `ICEout.tech Signatories Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`, [-122.15308, 37.48116], 40000]
 } 
