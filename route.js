@@ -1,6 +1,6 @@
 `use strict`;
 
-const { readFile, readFileSync, createReadStream, mkdir, stat, writeFile, writeFileSync } = require(`fs`);
+const { existsSync, readFile, readFileSync, createReadStream, mkdir, stat, writeFile, writeFileSync } = require(`fs`);
 
 const { createHash } = require(`crypto`);
 
@@ -85,7 +85,11 @@ class Route {
 
       Polling.on(`data`, Arg => {
 
-        App.emit(`data`, [Arg[0], Tools.typen(readFileSync(`bin/json/${Arg[1]}.json`, {encoding: `utf8`}))])});
+        if (existsSync(`bin/json/${Arg[1]}.json`) === true) {
+
+          App.emit(`data`, [Arg[0], Tools.typen(readFileSync(`bin/json/${Arg[1]}.json`, {encoding: `utf8`}))]);
+        }
+      });
     });
   }
 }

@@ -138,14 +138,14 @@ let Models = {
       Arg[1].forEach((Byline, A) => {
 
         DOM.push([`g`, {}, 
-          [[`text`, {fill: `#000`, x: 1, y: (A*40)+10, [`font-size`]: `${11.88}px`}, `${A + 1}.`], 
+          [[`text`, {fill: `#000`, x: 1, y: (A*40)+10, [`font-family`]: `insvg`, [`font-size`]: `${12.88}px`}, `${A + 1}.`], 
           [`text`, {class: `atxt`, url: Byline[0], fill: `#000`, x: 20, y: (A*40)+10, [`font-size`]: `${11.88}px`}, Byline[1]], 
           [`path`, {display: (A === Arg[1].length - 1)?`none`:`flex`, fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M5 ${(A*40)+14} 5 ${(A*40)+38}`}]]]);
       });
 
       return [[`svg`, {style: {background: `#c4d8dd`}}], 
-        [`section`, {style: {margin: `${12}px`, position: `fixed`, left: 0, top: 0, width: `max-content`, [`z-index`]: 20}}, 
-          [[`svg`, {style: {[`font-family`]: `aspg`, height: `${180}px`, [`text-transform`]: `uppercase`, width: `${150}px`}}, DOM]]], 
+        [`section`, {style: {position: `fixed`, left: 0, top: 0, width: `${100}%`, [`z-index`]: 20}}, 
+          [[`svg`, {style: {display: (Arg[1].length === 0)? `none`: `flex`, background: `#ffffffeb`, [`border-radius`]: `${4}px`, [`box-shadow`]: `rgba(${10}, ${14}, ${29}, ${0.08}) 0 ${8}px ${64}px ${4}px`, [`font-family`]: `aspg`, [`font-weight`]: 600, height: `${48*Arg[1].length - 28}px`, margin: `${12}px`, [`text-transform`]: `uppercase`, [`max-width`]: `${400}px`, padding: `${12}px`}}, DOM]]], 
         [`footer`, {id: `foot`, style: {bckground: `rgba(${217}, ${217}, ${217}, ${0.8})`, bottom: 0, position: `fixed`, width: `${100}%`, [`z-index`]: 18}}, 
           [[`div`, {style: {bottom: 0, left: 0, margin: `auto`, [`max-width`]: `${640}px`, position: `absolute`, right: 0, width: `${100}%`}}, 
             [[`div`, {style: {width: `${100}%`}}, 

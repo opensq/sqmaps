@@ -63,7 +63,7 @@ class Event {
                 .enter().append(`circle`)
                 .attr(`cx`, S => {return projection(S[0]) [0]})
                 .attr(`cy`, S => {return projection(S[0]) [1]})
-                .attr(`r`, 2.5)
+                .attr(`r`, 1.5)
                 .attr(`fill`, `#000`)
                 .attr(`stroke`, `#fff`)
 
