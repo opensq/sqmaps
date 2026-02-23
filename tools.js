@@ -114,6 +114,10 @@ class Tools {
     });
 
     writeFileSync(`bin/json/1770821887204.json`, this.coats(Obj));
+
+    Obj = {SVG: {polmultiple: {}}};
+
+    writeFileSync(`bin/json/1771789645312.json`, this.coats(Obj));
   }
 }
 

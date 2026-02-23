@@ -81,6 +81,24 @@ let Models = {
             [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 6, d: `M0 18 12 6 24 18`}]]], DOM[0]]], [`div`]]];
     },
 
+    polmultiple: (Arg) => {
+
+      let Polit = [`california`, `colorado`, `new york`, `washington`];
+
+      let DOM = [];
+
+      Polit.forEach(geo => {
+
+        DOM.push([`a`, {href: `javascript:;`, style: {[`border-top`]: `1px solid #E5E5E5`, color: `#000`, padding: `${8}px ${18}px`}}, geo])
+      })
+
+      return [`div`, {style: {background: `#ffffffeb`, [`border-radius`]: `${4}px`, [`box-shadow`]: `rgba(${10}, ${14}, ${29}, ${0.08}) 0 ${8}px ${64}px ${4}px`, margin: `${12}px`, [`text-transform`]: `uppercase`, [`max-width`]: `max-content`}}, 
+        [[`div`, {class: `_gxM _geQ`, style: {[`max-width`]: `fit-content`, padding: `${8}px ${18}px`}}, 
+          [[`a`, {href: `javascript:;`, style: {color: `#000`}}, Polit[0]],
+          [`svg`, {viewbox: `0 0 24 24`, style: {height: `${6}px`, [`margin-left`]: `${12}px`, width: `${6}px`}}, 
+            [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 6, d: `M0 6 12 18 24 6`}]]]]], [`div`, {style: {}}, DOM]]];
+    },
+
     main: () => {
 
       let Situ = [];
@@ -100,18 +118,7 @@ let Models = {
               [`g`, {}, 
                 [[`text`, {fill: `#000`, x: 1, y: 50, [`font-size`]: `${11.88}px`}, `2.`], 
                 [`text`, {class: `atxt`, url: `/${Open[Situ[1]][0]}/${Situ[1]}`, fill: `#000`, x: 20, y: 50, [`font-size`]: `${11.88}px`}, Constants.pseudo[Open[Situ[1]][0]]], 
-                /*[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M5 54 5 78`}]*/]], 
-              /*[`g`, {style: {[`text-transform`]: `apitalize`}}, 
-                [[`text`, {fill: `#000`, x: 1, y: 90, [`font-size`]: `${11.88}px`}, `3.`], 
-                [`text`, {fill: `#000`, x: 20, y: 90, [`font-size`]: `${11.88}px`}, `minnesota`], 
-                [`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M5 94 5 118`}]]], 
-              [`g`, {style: {[`text-transform`]: `apitalize`}}, 
-                [[`text`, {fill: `#000`, x: 1, y: 130, [`font-size`]: `${11.88}px`}, `4.`], 
-                [`text`, {fill: `#000`, x: 20, y: 130, [`font-size`]: `${11.88}px`}, `maryland`], 
-                [`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M5 134 5 158`}]]], 
-              [`g`, {style: {[`text-transform`]: `apitalize`}}, 
-                [[`text`, {fill: `#000`, x: 1, y: 170, [`font-size`]: `${11.88}px`}, `5.`], 
-                [`text`, {fill: `#000`, x: 20, y: 170, [`font-size`]: `${11.88}px`}, `alaska`]]]*/]]]], 
+                /*[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M5 54 5 78`}]*/]]]]]], 
         [`footer`, {id: `foot`, style: {bckground: `rgba(${217}, ${217}, ${217}, ${0.8})`, bottom: 0, position: `fixed`, width: `${100}%`, [`z-index`]: 18}}, 
           [[`div`, {style: {bottom: 0, left: 0, margin: `auto`, [`max-width`]: `${640}px`, position: `absolute`, right: 0, width: `${100}%`}}, 
             [[`div`, {style: {width: `${100}%`}}, 
@@ -144,7 +151,7 @@ let Models = {
       });
 
       return [[`svg`, {style: {background: `#c4d8dd`}}], 
-        [`section`, {style: {position: `fixed`, left: 0, top: 0, width: `${100}%`, [`z-index`]: 20}}, 
+        [`section`, {id: `byline`, style: {position: `fixed`, left: 0, top: 0, [`z-index`]: 20}}, 
           [[`svg`, {style: {display: (Arg[1].length === 0)? `none`: `flex`, background: `#ffffffeb`, [`border-radius`]: `${4}px`, [`box-shadow`]: `rgba(${10}, ${14}, ${29}, ${0.08}) 0 ${8}px ${64}px ${4}px`, [`font-family`]: `aspg`, [`font-weight`]: 600, height: `${48*Arg[1].length - 28}px`, margin: `${12}px`, [`text-transform`]: `uppercase`, [`max-width`]: `${400}px`, padding: `${12}px`}}, DOM]]], 
         [`footer`, {id: `foot`, style: {bckground: `rgba(${217}, ${217}, ${217}, ${0.8})`, bottom: 0, position: `fixed`, width: `${100}%`, [`z-index`]: 18}}, 
           [[`div`, {style: {bottom: 0, left: 0, margin: `auto`, [`max-width`]: `${640}px`, position: `absolute`, right: 0, width: `${100}%`}}, 
@@ -163,7 +170,8 @@ let Models = {
             [[`div`, {class: `_gxM _geQ`}, 
               [[`span`, {}, `CURRENT SIGNATORIES`], [`div`, {class: `_gZz`}, [[`span`, {id: `tally`, style:{ [`font-family`]: `insvg`, [`font-weight`]: 600}}, ``]]]]],
             [`div`, {class: `_gxM`, style: {color: `#909090`, [`font-family`]: `aspg`, [`font-size`]: `${8}px`, [`text-transform`]: `uppercase`}}, 
-              [[`span`, {}, `data by`], [`a`, {href: `https://iceout.tech`, style: {[`margin-left`]: `${4}px`, [`text-decoration`]: `underline`}}, `iceout.tech`]]]]]]]];
+              [[`span`, {}, `data by`], [`a`, {href: `https://iceout.tech`, style: {[`margin-left`]: `${4}px`, [`text-decoration`]: `underline`}}, `iceout.tech`]]]]]]], 
+        [`section`, {id: `polmultiple`, style: {[`font-family`]: `aspg`, [`font-size`]: `${12}px`, [`font-weight`]: 600, position: `fixed`, right: 0, top: 0, [`z-index`]: 18}}, ]];
     }
   }
 };

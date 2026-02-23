@@ -211,7 +211,7 @@ const Open = {
 
   [1770566116156]: [
     `ca`, 
-    `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`, [-122.0842, 37.2], 12000, `tech monopolies tests ca labor`],
+    `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`, [-122.0842, 37.2], 12000, `tech monopolies test ca labor`],
   [1770821887204]: [`ca`, `ICEout.tech Signatories Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`, [-122.15308, 37.48116], 40000, `iceout san francisco`],
   [1771789645312]: [`us`, `Palantir Money Running Through Democrat Campaigns`, [-122.15308, 37.48116], 32000, `palantir funded democrats`]
 } 
