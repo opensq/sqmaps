@@ -117,6 +117,38 @@ class Tools {
 
     Obj = {SVG: {polmultiple: {}}};
 
+      CSV = readFileSync(`bin/csv/.palantir.csv`, {encoding: `utf8`});
+
+    CSV = CSV.replaceAll(`\r`, ``);
+
+    CSV = CSV.split(`\n`); 
+
+    CSV.forEach(Value => {
+
+      if (Value[0] === `"`) {
+
+        Value = Value.split(`"`);
+
+        Value[2] = Value[2].split(`,`);
+
+        if (Value[2][5] === `Democrat`) {
+
+          Value[2][0] = Value[1];
+
+          let AC = Value[2][4].split(`-`)[1];
+
+          if (AC !== `PRES)` && AC[2] !== `S`) {
+
+            Value[2].push([`${AC[0]}${AC[1]}`, `${AC[2]}${AC[3]}`])
+
+            if (!Obj.SVG.polmultiple[`${AC[0]}${AC[1]}`]) { Obj.SVG.polmultiple[`${AC[0]}${AC[1]}`] = [] }
+
+            Obj.SVG.polmultiple[`${AC[0]}${AC[1]}`].push(Value[2]);
+          }
+        }
+      }
+    });//console.log(Obj.SVG.polmultiple)
+
     writeFileSync(`bin/json/1771789645312.json`, this.coats(Obj));
   }
 }

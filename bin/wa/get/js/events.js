@@ -51,9 +51,21 @@ class Event {
 
             if (Obj[1].SVG.polmultiple) {
 
+              let Polit = [];
+
+              for (let pol in Obj[1].SVG.polmultiple) {
+
+                Polit.push([pol.toLowerCase()]);
+              }
+
               View.pop();
 
-              View.DOM([`#polmultiple`, [Models.app.polmultiple()]])
+              View.DOM([`#polmultiple`, [Models.app.polmultiple(Polit)]]);
+
+              this.listen([document.querySelector(`#polmultiple .pM0`), `click`, S => {
+
+                document.querySelector(`#polmultiple .pMAZ`).style.display = (document.querySelector(`#polmultiple .pMAZ`).style.display === `none`)? `flex`: `none`;
+              }]);
             }
 
             if (Obj[1].SVG.tally) {

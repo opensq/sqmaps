@@ -49,7 +49,11 @@ let Clients = sessionStorage;
 const Constants = {
 
   pseudo: {
-    ca: `california`,
+    ak: `alaska`, al: `alabama`, az: `arizona`, ca: `california`, co: `colorado`, ct: `conneticut`, de: `delaware`, fl: `florida`, ia: `iowa`, il: `illinois`, md: `maryland`, mi: `michigan`, 
+    mo: `missouri`, mn: `minnesota`, 
+    nh: `new hampshire`, nj: `new jersey`, nm: `new mexico`, 
+    nv: `nevada`, ny: `new york`, oh: `ohio`, 
+    or: `oregon`, pa: `pennsylvania`, ri: `rhode island`, tx: `texas`, va: `virginia`, wa: `washington`, wi: `wisconsin`,
     us: `usa`
   },
 
