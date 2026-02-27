@@ -47,7 +47,7 @@ class Event {
 
         io().on(`data`, Obj => {
 
-          if (Obj[0] === ts) {View.pop()
+          if (Obj[0] === ts) {
 
             if (Obj[1].SVG.polmultiple) {
 
