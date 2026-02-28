@@ -68,12 +68,16 @@ class Event {
 
                 let XOV = Tools.typen(XO.getAttribute(`info`));
 
-                //if (XOV[0].toLowerCase() === Constants.pseudo[Polit[0][0]]) { XO.style.stroke = `#000`; XO.style.strokeWidth = 1.5 }
+                //if (XOV[0].toLowerCase() === Constants.pseudo[Polit[0][0]][0]) { XO.style.stroke = `#000`; XO.style.strokeWidth = 2 }
               });
+
+              let CD = [], CDV = {};
 
               d3.json(`/wa/data/maps/cb_2024_us_cd119_20m.json`).then(Obj => {
 
-                let CD = []
+                CD = [];
+
+                CDV = Obj;
 
                 Obj.features.forEach(PV => {
 
@@ -86,15 +90,58 @@ class Event {
                   }
                 });
 
-                SVGDOM.selectAll(`path.cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#fff`).attr(`stroke-width`, .75).attr(`fill`, `blue`)
+                SVGDOM.selectAll(`path.cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `848484`).attr(`stroke-width`, 1).attr(`fill`, `blue`)
 
-                //SVGDOM.selectAll(`path.cd119`).data(Obj.features).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#fff`).attr(`stroke-width`, 1).attr(`fill`, `none`)
               }).catch(error => {throw error})
 
-              this.listen([document.querySelector(`#polmultiple .pM0`), `click`, S => {
+              this.listen([document.querySelector(`#polmultiple .pM0`), `click`, S => { 
 
                 document.querySelector(`#polmultiple .pMAZ`).style.display = (document.querySelector(`#polmultiple .pMAZ`).style.display === `none`)? `flex`: `none`;
               }]);
+
+              document.querySelectorAll(`.pM`).forEach(DOM => {
+
+                this.listen([DOM, `click`, S => {
+
+                  let OValue = Tools.typen(DOM.getAttribute(`state`));
+
+                  document.querySelector(`#polmultiple .pM0`).innerHTML = OValue[0]
+
+                  document.querySelector(`#polmultiple .pMAZ`).style.display = `none`;
+
+                  projection.scale(OValue[2])
+                  
+                  projection.center(OValue[1]);
+                  
+                  SVGDOM.selectAll("path").attr("d", path); 
+
+                  document.querySelectorAll(`.adm_1`).forEach(XO => {
+
+                    XO.style.stroke = `none`;
+
+                    let XOV = Tools.typen(XO.getAttribute(`info`));
+
+                    //if (XOV[0].toLowerCase() === OValue[0]) { XO.style.stroke = `#000`; XO.style.strokeWidth = 2 }
+                  }); 
+
+                  CD = [];
+
+                  CDV.features.forEach(PV => {
+
+                    if (parseFloat(PV.properties.STATEFP) === OValue[3]) {
+
+                      Polit[0][1].forEach(PV2 => {
+
+                        if (PV.properties.CD119FP === PV2[6][1]) {CD.push(PV)}
+                      })
+                    }
+                  });
+
+                  SVGDOM.selectAll(`.cd119`).remove()
+
+                  SVGDOM.selectAll(`cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#fff`).attr(`stroke-width`, .75).attr(`fill`, `blue`)   
+                }]);
+              })
             }
 
             if (Obj[1].SVG.tally) {
