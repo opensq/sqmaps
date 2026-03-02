@@ -39,7 +39,7 @@ class Event {
 
         SVGDOM.selectAll(`path`).data(ADMI).enter().append(`path`).attr(`d`, path).attr(`class`, `adm_1`).attr(`info`, Obj => {return Tools.coats([Obj.properties.NAME])});
 
-        SVG.select(`g`).attr(`fill`, `#f2f3f0`).attr(`stroke`, `#fff`).style(`stroke-width`, 1);
+        SVG.select(`g`).attr(`fill`, `#f2f3f0`).attr(`stroke`, `#000`).style(`stroke-width`, 1);
 
         let ts = new Date().valueOf();
 
@@ -64,11 +64,11 @@ class Event {
 
               document.querySelectorAll(`.adm_1`).forEach(XO => {
 
-                XO.style.stroke = `none`;
+                XO.style.strokeWidth = .25;
 
                 let XOV = Tools.typen(XO.getAttribute(`info`));
 
-                //if (XOV[0].toLowerCase() === Constants.pseudo[Polit[0][0]][0]) { XO.style.stroke = `#000`; XO.style.strokeWidth = 2 }
+                if (XOV[0].toLowerCase() === Constants.pseudo[Polit[0][0]][0]) { XO.style.stroke = `#000`; XO.style.strokeWidth = 2 }
               });
 
               let CD = [], CDV = {};
@@ -90,7 +90,7 @@ class Event {
                   }
                 });
 
-                SVGDOM.selectAll(`path.cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `848484`).attr(`stroke-width`, 1).attr(`fill`, `blue`)
+                SVGDOM.selectAll(`path.cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#dfdfdf`).attr(`stroke-width`, 1).attr(`fill`, `#fff`)
 
               }).catch(error => {throw error})
 
@@ -117,11 +117,11 @@ class Event {
 
                   document.querySelectorAll(`.adm_1`).forEach(XO => {
 
-                    XO.style.stroke = `none`;
+                    XO.style.strokeWidth = .25;
 
                     let XOV = Tools.typen(XO.getAttribute(`info`));
 
-                    //if (XOV[0].toLowerCase() === OValue[0]) { XO.style.stroke = `#000`; XO.style.strokeWidth = 2 }
+                    if (XOV[0].toLowerCase() === OValue[0]) { XO.style.stroke = `#000`; XO.style.strokeWidth = 2 }
                   }); 
 
                   CD = [];
@@ -139,7 +139,7 @@ class Event {
 
                   SVGDOM.selectAll(`.cd119`).remove()
 
-                  SVGDOM.selectAll(`cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#fff`).attr(`stroke-width`, .75).attr(`fill`, `blue`)   
+                  SVGDOM.selectAll(`cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#dfdfdf`).attr(`stroke-width`, 1).attr(`fill`, `#fff`)   
                 }]);
               })
             }

@@ -93,14 +93,14 @@ let Models = {
 
       Polit.forEach(GV => {
 
-        DOM.push([`a`, {class: `pM`, state: Tools.coats(GV), href: `javascript:;`, style: {[`border-top`]: `1px solid #E5E5E5`, color: `#000`, padding: `${8}px ${16}px`}}, GV[0]])
+        DOM.push([`a`, {class: `pM`, state: Tools.coats(GV), href: `javascript:;`, style: {[`border-top`]: `1px solid #E5E5E5`, color: `#000`, padding: `${4}px ${12}px`}}, GV[0]])
       });
 
       return [`div`, {style: {background: `#ffffffeb`, [`border-radius`]: `${4}px`, [`box-shadow`]: `rgba(${10}, ${14}, ${29}, ${0.08}) 0 ${8}px ${64}px ${4}px`, margin: `${12}px`, [`text-transform`]: `uppercase`, [`max-width`]: `max-content`}}, 
-        [[`div`, {class: `_gxM _geQ`, style: {[`max-width`]: `max-content`, padding: `${8}px ${16}px`}}, 
+        [[`div`, {class: `_gxM _geQ`, style: {[`align-self`]: `end`, padding: `${4}px ${12}px`}}, 
           [[`a`, {class: `pM0`, href: `javascript:;`, style: {color: `#000`}}, Constants.pseudo[Arg[0][0]][0]],
-          [`svg`, {viewbox: `0 0 24 24`, style: {height: `${6}px`, [`margin-left`]: `${12}px`, width: `${6}px`}}, 
-            [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 6, d: `M0 6 12 18 24 6`}]]]]], [`div`, {class: `pMAZ`, style: {display: `none`, [`max-height`]: `${400}px`, [`overflow-y`]: `scroll`, [`scrollbar-width`]: `none`}}, DOM]]];
+          [`svg`, {class: `_gZz`, viewbox: `0 0 24 24`, style: {height: `${6}px`, [`margin-left`]: `${12}px`, width: `${6}px`}}, 
+            [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 6, d: `M0 6 12 18 24 6`}]]]]], [`div`, {class: `pMAZ`, style: {display: `none`, [`max-height`]: `${400}px`, [`overflow-y`]: `scroll`, [`scrollbar-width`]: `none`, [`text-align`]: `right`}}, DOM]]];
     },
 
     main: () => {
@@ -175,7 +175,7 @@ let Models = {
               [[`span`, {}, `CURRENT SIGNATORIES`], [`div`, {class: `_gZz`}, [[`span`, {id: `tally`, style:{ [`font-family`]: `insvg`, [`font-weight`]: 600}}, ``]]]]],
             [`div`, {class: `_gxM`, style: {color: `#909090`, [`font-family`]: `aspg`, [`font-size`]: `${8}px`, [`text-transform`]: `uppercase`}}, 
               [[`span`, {}, `data by`], [`a`, {href: `https://iceout.tech`, style: {[`margin-left`]: `${4}px`, [`text-decoration`]: `underline`}}, `iceout.tech`]]]]]]], 
-        [`section`, {id: `polmultiple`, style: {[`font-family`]: `aspg`, [`font-size`]: `${10.88}px`, [`font-weight`]: 600, [`letter-spacing`]: `${.75}px`, position: `fixed`, right: 0, top: 0, [`z-index`]: 18}}, ]];
+        [`section`, {id: `polmultiple`, style: {[`font-family`]: `opensq`, [`font-size`]: `${10.88}px`, [`font-weight`]: 300, [`letter-spacing`]: `${.75}px`, position: `fixed`, right: 0, top: 0, [`z-index`]: 18}}, ]];
     }
   }
 };
