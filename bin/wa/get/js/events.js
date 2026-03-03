@@ -51,6 +51,34 @@ class Event {
 
             if (Obj[1].SVG.polmultiple) {
 
+              let highlight = () => {
+
+                document.querySelectorAll(`.cd119`).forEach(XO => {
+
+                  this.listen([XO, `mouseover`, S => {
+
+                    //XO.style.stroke = `#000`;
+
+                    XO.style.strokeDasharray = 0;
+
+                    XO.style.strokeWidth = 3;
+
+                        //document.querySelector(`#tally`).innerHTML = DOM.getAttribute(`sum`);
+
+                        let SX = parseFloat(XO.getAttribute(`x`));
+                  }]);
+
+                  this.listen([XO, `mouseleave`, S => {
+
+                    //XO.style.stroke = `#dfdfdf`;
+
+                    XO.style.strokeDasharray = 2;
+
+                    XO.style.strokeWidth = 1;
+                  }]);
+                });
+              } 
+
               let Polit = [];
 
               for (let pol in Obj[1].SVG.polmultiple) {
@@ -90,7 +118,9 @@ class Event {
                   }
                 });
 
-                SVGDOM.selectAll(`path.cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#dfdfdf`).attr(`stroke-width`, 1).attr(`fill`, `#fff`)
+                SVGDOM.selectAll(`path.cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#dfdfdf`).attr(`stroke-dasharray`, 2).attr(`stroke-width`, 1).attr(`fill`, `#fff`)
+
+                highlight();
 
               }).catch(error => {throw error})
 
@@ -139,7 +169,9 @@ class Event {
 
                   SVGDOM.selectAll(`.cd119`).remove()
 
-                  SVGDOM.selectAll(`cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#dfdfdf`).attr(`stroke-width`, 1).attr(`fill`, `#fff`)   
+                  SVGDOM.selectAll(`cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#dfdfdf`).attr(`stroke-dasharray`, 2).attr(`stroke-width`, 1).attr(`fill`, `#fff`);
+
+                  highlight(); 
                 }]);
               })
             }
