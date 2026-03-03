@@ -85,7 +85,7 @@ let Models = {
 
       let Polit = [];
 
-      Arg.forEach(A => { Polit.push(Constants.pseudo[A[0]]) });
+      Arg.forEach(A => { Polit.push(Constants.pseudo[A[0]].concat(A)) });
 
       Polit.sort();
 
@@ -93,7 +93,7 @@ let Models = {
 
       Polit.forEach(GV => {
 
-        DOM.push([`a`, {class: `pM`, state: Tools.coats(GV), href: `javascript:;`, style: {[`border-top`]: `1px solid #E5E5E5`, color: `#000`, padding: `${4}px ${12}px`}}, GV[0]])
+        DOM.push([`a`, {class: `pM`, state: (Tools.coats(GV)), href: `javascript:;`, style: {[`border-top`]: `1px solid #E5E5E5`, color: `#000`, padding: `${4}px ${12}px`}}, GV[0]])
       });
 
       return [`div`, {style: {background: `#ffffffeb`, [`border-radius`]: `${4}px`, [`box-shadow`]: `rgba(${10}, ${14}, ${29}, ${0.08}) 0 ${8}px ${64}px ${4}px`, margin: `${12}px`, [`text-transform`]: `uppercase`, [`max-width`]: `max-content`}}, 
@@ -169,13 +169,35 @@ let Models = {
                                 [`div`, {class: `_gZz`}, 
                                     [[`svg`, {id: `multiClose`, viewbox: `0 0 24 24`, style: {cursor: `pointer`, height: `${12}px`, width: `${12}px`}}, 
                                         [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, m: `M0 6 12 18 24 6`}]]]]]]]]]]]]], 
-        [`div`, {id: `bubble`, style: {background: `#fff`, border: `${1}px solid #f0f0f0de`, [`border-radius`]: `${2}px`, [`box-shadow`]: `${0} ${8}px ${64}px ${4}px rgba(${10},${14},${29},${.08})`, display: `none`, [`font-size`]: `${11}px`, [`min-width`]: `${160}px`, position: `absolute`, left: 0, top: `${38}px`, [`z-index`]: 24}}, 
+        [`div`, {id: `bubble`, style: {background: `#fff`, border: `${1}px solid #f0f0f0de`, [`border-radius`]: `${8}px`, [`box-shadow`]: `${0} ${8}px ${64}px ${4}px rgba(${10},${14},${29},${.08})`, display: `none`, [`font-size`]: `${11}px`, [`min-width`]: `${160}px`, position: `absolute`, left: 0, top: `${38}px`, [`z-index`]: 24}}, 
           [[`div`, {style: {[`font-size`]: `${11}px`, margin: `${2}px ${8}px`}}, 
             [[`div`, {class: `_gxM _geQ`}, 
               [[`span`, {}, `CURRENT SIGNATORIES`], [`div`, {class: `_gZz`}, [[`span`, {id: `tally`, style:{ [`font-family`]: `insvg`, [`font-weight`]: 600}}, ``]]]]],
             [`div`, {class: `_gxM`, style: {color: `#909090`, [`font-family`]: `aspg`, [`font-size`]: `${8}px`, [`text-transform`]: `uppercase`}}, 
               [[`span`, {}, `data by`], [`a`, {href: `https://iceout.tech`, style: {[`margin-left`]: `${4}px`, [`text-decoration`]: `underline`}}, `iceout.tech`]]]]]]], 
         [`section`, {id: `polmultiple`, style: {[`font-family`]: `opensq`, [`font-size`]: `${10.88}px`, [`font-weight`]: 300, [`letter-spacing`]: `${.75}px`, position: `fixed`, right: 0, top: 0, [`z-index`]: 18}}, ]];
+    },
+
+    bubbly: (Arg) => {
+
+      if (Arg[0] === 1771789645312) {
+
+        let DOM = [];
+
+        Arg[1].forEach(Obj => {
+
+          DOM.push([`div`, {style: {padding: `${4}px ${8}px ${0} ${8}px`}}, 
+            [[`span`, {style: {[`text-decoration`]: `underline`}}, Obj[0]], 
+            [`div`, {class: `_gxM _geQ`, style: {[`font-family`]: `insvg`}}, 
+              [[`span`, {}, `2024.`], 
+              [`div`, {class: `_gZz`}, [[`span`, {style: {[`text-align`]: `right`, [`font-weight`]: 600}}, `$${Obj[1]}`]]]]]]])
+        });
+
+        return [`div`, {style: {[`letter-spacing`]: `${.75}px`}}, 
+          [[`div`, {style: {[`border-bottom`]: `${1}px solid #f0f0f0`, padding: `${2}px ${8}px`}}, 
+            [[`span`, {style: {[`font-weight`]: 600, [`text-transform`]: `uppercase`}}, `${Constants.pseudo[(Arg[1][0][6][0].toLowerCase())][0]} district ${parseInt(Arg[1][0][6][1])}`]]], 
+          [`div`, {style: {blank: `${2}px ${8}px`}}, DOM]]];
+      }
     }
   }
 };

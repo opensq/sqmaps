@@ -57,24 +57,54 @@ class Event {
 
                   this.listen([XO, `mouseover`, S => {
 
-                    //XO.style.stroke = `#000`;
-
                     XO.style.strokeDasharray = 0;
 
                     XO.style.strokeWidth = 3;
 
-                        //document.querySelector(`#tally`).innerHTML = DOM.getAttribute(`sum`);
+                    let OD = (Tools.typen(XO.getAttribute(`obj`)));
 
-                        let SX = parseFloat(XO.getAttribute(`x`));
+                    View.pop();
+
+                    View.DOM([`#bubble`, [Models.app.bubbly([1771789645312, OD])]]);
+
+                    let SX = S.clientX;
+
+                    document.querySelector(`#bubble`).style.left = `${SX + 10}px`;
+
+                    document.querySelector(`#bubble`).style.right = `unset`;
+
+                    if (SX > Constants.DOMXY[0]/2) {
+
+                      document.querySelector(`#bubble`).style.left = `unset`;
+
+                      document.querySelector(`#bubble`).style.right = `${(Constants.DOMXY[0] - SX) + 10}px`;
+                    }
+
+                  let SY = S.clientY;
+
+                  document.querySelector(`#bubble`).style.top = `${SY + 10}px`;
+
+                  document.querySelector(`#bubble`).style.bottom = `unset`;
+
+                  if (SY > Constants.DOMXY[1]/2) {
+
+                    document.querySelector(`#bubble`).style.top = `unset`;
+
+                    document.querySelector(`#bubble`).style.bottom = `${(Constants.DOMXY[1] - SY) + 10}px`;
+                  }
+
+                  document.querySelector(`#bubble`).style.minWidth = `${200}px`;
+
+                  document.querySelector(`#bubble`).style.display = `flex`
                   }]);
 
                   this.listen([XO, `mouseleave`, S => {
 
-                    //XO.style.stroke = `#dfdfdf`;
-
                     XO.style.strokeDasharray = 2;
 
                     XO.style.strokeWidth = 1;
+
+                    document.querySelector(`#bubble`).style.display = `none`
                   }]);
                 });
               } 
@@ -109,16 +139,17 @@ class Event {
 
                 Obj.features.forEach(PV => {
 
-                  if (PV.properties.STATEFP === "36") {
+                  if (PV.properties.STATEFP === "36") {PV[`info`] = []; 
 
                     Polit[0][1].forEach(PV2 => {
 
-                      if (PV.properties.CD119FP === PV2[6][1]) {CD.push(PV)}
+                      if (PV.properties.CD119FP === PV2[6][1]) {PV.info.push(PV2); CD.push(PV)}
                     })
                   }
                 });
 
-                SVGDOM.selectAll(`path.cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#dfdfdf`).attr(`stroke-dasharray`, 2).attr(`stroke-width`, 1).attr(`fill`, `#fff`)
+                SVGDOM.selectAll(`path.cd119`).data(CD).enter().append(`path`)
+                  .attr(`obj`, S => {return Tools.coats(S.info)}).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#dfdfdf`).attr(`stroke-dasharray`, 2).attr(`stroke-width`, 1).attr(`fill`, `#fff`)
 
                 highlight();
 
@@ -158,18 +189,22 @@ class Event {
 
                   CDV.features.forEach(PV => {
 
-                    if (parseFloat(PV.properties.STATEFP) === OValue[3]) {
+                    if (parseFloat(PV.properties.STATEFP) === OValue[3]) {PV[`info`] = []; 
 
-                      Polit[0][1].forEach(PV2 => {
+                      OValue[5].forEach(PV2 => {
 
-                        if (PV.properties.CD119FP === PV2[6][1]) {CD.push(PV)}
+                        if (parseFloat(PV.properties.CD119FP) === 0 || parseFloat(PV.properties.CD119FP) === parseFloat(PV2[6][1])) {
+
+                          PV.info.push(PV2); CD.push(PV);
+                        }
                       })
                     }
                   });
 
                   SVGDOM.selectAll(`.cd119`).remove()
 
-                  SVGDOM.selectAll(`cd119`).data(CD).enter().append(`path`).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#dfdfdf`).attr(`stroke-dasharray`, 2).attr(`stroke-width`, 1).attr(`fill`, `#fff`);
+                  SVGDOM.selectAll(`cd119`).data(CD).enter().append(`path`)
+                    .attr(`obj`, S => {return Tools.coats(S.info)}).attr(`d`, path).attr(`class`, `cd119`).attr(`stroke`, `#dfdfdf`).attr(`stroke-dasharray`, 2).attr(`stroke-width`, 1).attr(`fill`, `#fff`);
 
                   highlight(); 
                 }]);
