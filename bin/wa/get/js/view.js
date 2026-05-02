@@ -118,11 +118,20 @@ let Models = {
         //DOM[0].push([`img`, {style: {border: `${2}px solid #078870`, [`border-radius`]: `${100}%`, [`margin-right`]: `${8}px`, width: `${36}px`}, src: `/wa/get/img.png`}])
       }
 
+      DOM[1] = [];
+
       Situ.forEach(ts => {
+
+        DOM[1] = [];
+
+        SDATA[ts][3].quotes.forEach(Obj => {
+        
+          DOM[1].push([`img`, {style: {border: `${2}px solid #078870`, [`border-radius`]: `${100}%`, [`margin-right`]: `${8}px`, width: `${36}px`}, src: `/wa/get/img/mug/${Mug[Obj[0]][0]}.jpg`}])
+        });
 
         DOM[0].push([`section`, {style: {}}, 
           [[`a`, {href: `/data/${ts}`, style: {padding: `${10}px ${12}px`}}, SDATA[ts][2]], 
-            [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, []], 
+            [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, DOM[1]], 
             [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, [[`span`, {style: {color: `#7d7d7d`, [`font-family`]: `intext`, [`font-size`]: `${10.88}px`, [`font-weight`]: 300}}, new Date(parseInt(ts)).toLocaleString()]]]]]);
       });
 

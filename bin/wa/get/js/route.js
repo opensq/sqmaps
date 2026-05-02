@@ -226,7 +226,15 @@ class Route {
 Route = new Route();
 
 const SDATA = {
-  [1777742487952]: [0, [`us`], `Alex Bores becomes proxy for Crypto vs AI wealth Battle over Regulation`, {quotes: []}],
+  [1777742487952]: [
+    0, [`us`], `Alex Bores becomes proxy for Crypto vs AI wealth Battle over Regulation`, 
+    {quotes: [
+      [
+        `Chris Larsen`, 
+        `cofounder, Ripple Labs`, 
+        [
+          `They are trying to destroy and intimidate and send a clear message that if you do come up with clear guardrails, we
+are going to crush you, While some of these folks are going to try to crush you, others are going to step up, and we’re going to support you.`]], [`Alex Bores`, `NY-CD12 primary candidate (D)`, []]]}],
   [1777666598622]: [
     0, [`us`], `Israel's Center leadership Seeks to win back Democrats`, 
     {quotes: [
@@ -252,7 +260,8 @@ const SDATA = {
 }
 
 const Mug = {
-
+  [`Alex Bores`]: [1777744977577],
+  [`Chris Larsen`]: [1777745037620],
   [`Dahlia Scheindlin`]: [`1777725298656`],
   [`Ilan Goldenberg`]: [`1777737835665`],
   [`Jeanne Shaheen`]: [`1777738600102`],
