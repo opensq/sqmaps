@@ -107,34 +107,30 @@ let Models = {
 
       let Situ = [];
 
-      for (let ts in Open) { Situ.push(ts) }
+      for (let ts in SDATA) { Situ.push(ts) }
 
       Situ = Situ.sort((A, B) => {return B - A});
 
-      return [[`svg`, {style: {background: `#c4d8dd`}}], 
-        [`section`, {style: {margin: `${12}px`, position: `fixed`, left: 0, top: 0, width: `max-content`, [`z-index`]: 20}}, 
-          [[`svg`, {style: {[`font-family`]: `aspg`, height: `${180}px`, [`text-transform`]: `uppercase`, width: `${150}px`}}, 
-            [
-              [`g`, {style: {[`font-weight`]: 600}}, 
-                [[`text`, {fill: `#000`, x: 1, y: 10, [`font-size`]: `${11.88}px`}, `1.`], 
-                [`text`, {class: `atxt`, url: `/${Open[Situ[0]][0]}/${Situ[0]}`, fill: `#000`, x: 20, y: 10, [`font-size`]: `${11.88}px`}, Constants.pseudo[Open[Situ[0]][0]]], 
-                [`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M5 14 5 38`}]]], 
-              [`g`, {}, 
-                [[`text`, {fill: `#000`, x: 1, y: 50, [`font-size`]: `${11.88}px`}, `2.`], 
-                [`text`, {class: `atxt`, url: `/${Open[Situ[1]][0]}/${Situ[1]}`, fill: `#000`, x: 20, y: 50, [`font-size`]: `${11.88}px`}, Constants.pseudo[Open[Situ[1]][0]]], 
-                /*[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M5 54 5 78`}]*/]]]]]], 
-        [`footer`, {id: `foot`, style: {bckground: `rgba(${217}, ${217}, ${217}, ${0.8})`, bottom: 0, position: `fixed`, width: `${100}%`, [`z-index`]: 18}}, 
-          [[`div`, {style: {bottom: 0, left: 0, margin: `auto`, [`max-width`]: `${640}px`, position: `absolute`, right: 0, width: `${100}%`}}, 
-            [[`div`, {style: {width: `${100}%`}}, 
-              [[`div`, {class: `_gxM _geQ`, style: {[`border-bottom`]: `${1}px solid #ececec`, padding: `${10}px ${16}px`}}, 
-                [[`div`, {style: {width: `${95}%`}},  
-                  [[`a`, {href: `/${Open[Situ[0]][0]}/${Situ[0]}`}, 
-                    [[`h1`, {style: {color: `#000`, [`font-size`]: `${24}px`, [`font-weight`]: 600}}, Open[Situ[0]][1]]]],
-                    [`div`, {class: `_gxM _geQ`, style: {color: `#9d9d9d`, [`font-weight`]: 300, [`font-size`]: `${9}px`, [`margin-top`]: `${10}px`, [`text-transform`]: `uppercase`}}, 
-                      [[`a`, {href: `/${Open[Situ[0]][0]}`}, Constants.pseudo[Open[Situ[0]][0]]]]]]], 
-                                [`div`, {class: `_gZz`}, 
-                                    [[`svg`, {id: `multiClose`, viewbox: `0 0 24 24`, style: {cursor: `pointer`, height: `${12}px`, width: `${12}px`}}, 
-                                        [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, m: `M0 6 12 18 24 6`}]]]]]]]]]]]]]];
+      let DOM = [[]];
+
+      for (let i = 0; i < 4; i++) {
+        
+        //DOM[0].push([`img`, {style: {border: `${2}px solid #078870`, [`border-radius`]: `${100}%`, [`margin-right`]: `${8}px`, width: `${36}px`}, src: `/wa/get/img.png`}])
+      }
+
+      Situ.forEach(ts => {
+
+        DOM[0].push([`section`, {style: {}}, 
+          [[`a`, {href: `/data/${ts}`, style: {padding: `${10}px ${12}px`}}, SDATA[ts][2]], 
+            [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, []], 
+            [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, [[`span`, {style: {color: `#7d7d7d`, [`font-family`]: `intext`, [`font-size`]: `${10.88}px`, [`font-weight`]: 300}}, new Date(parseInt(ts)).toLocaleString()]]]]]);
+      });
+
+      return [`main`, {}, 
+        [[`header`, {style: {background: `#fff`, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
+          [[`div`, {style: {[`border-bottom`]: `${1}px solid #e7e7e7`, margin: `auto`, [`max-width`]: `${540}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
+            [[`a`, {href: `/`, style: {color: `#000`, [`font-family`]: `aspg`, [`font-size`]: `${12.88}px`, [`font-weight`]: 600, width: `max-content`}}, `OPENSQ`]]]]], 
+        [`div`, {style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, DOM[0]]]];
     },
 
     metal: (Arg) => {
@@ -198,6 +194,38 @@ let Models = {
             [[`span`, {style: {[`font-weight`]: 600, [`text-transform`]: `uppercase`}}, `${Constants.pseudo[(Arg[1][0][6][0].toLowerCase())][0]} district ${parseInt(Arg[1][0][6][1])}`]]], 
           [`div`, {style: {blank: `${2}px ${8}px`}}, DOM]]];
       }
+    },
+
+    data: (Arg) => {
+
+      let DOM = [[], []];
+
+      let Quote = SDATA[Arg[0]][3].quotes;
+
+      SDATA[Arg[0]][3].quotes.forEach(Quote => {
+
+        DOM[1] = []
+
+        Quote[2].forEach(txt => {
+
+          DOM[1].push([`p`, {style: {[`margin-top`]: `${12}px`}}, `"${txt}"`])
+        });
+        
+        DOM[0].push([`div`, {style: {border: `1px solid #078870`, [`border-radius`]: `${16}px`, margin: `${12}px`, padding: `${12}px`}}, 
+          [[`div`, {class: `_gxM _geQ`}, 
+            [[`img`, {style: {border: `${2}px solid #078870`, [`border-radius`]: `${100}%`, [`margin-right`]: `${8}px`, width: `${36}px`}, src: `/wa/get/img/mug/${Mug[Quote[0]][0]}.jpg`}], 
+            [`div`, {style: {}}, [[`span`, {}, Quote[0]], [`span`, {style: {[`text-transform`]: `capitalize`}}, Quote[1]]]]]], [`div`, {}, DOM[1]]]]);
+      });
+
+      return [`main`, {}, 
+        [[`header`, {style: {background: `#fff`, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
+          [[`div`, {style: {[`border-bottom`]: `${1}px solid #e7e7e7`, margin: `auto`, [`max-width`]: `${540}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
+            [[`a`, {href: `/`, style: {color: `#000`, [`font-family`]: `aspg`, [`font-size`]: `${12.88}px`, [`font-weight`]: 600, width: `max-content`}}, `OPENSQ`]]]]], 
+        [`div`, {style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, 
+          [[`section`, {style: {}}, 
+            [[`a`, {href: `/data/${Arg[0]}`, style: {padding: `${10}px ${12}px`}}, SDATA[Arg[0]][2]], 
+            [`div`, {class: ``, style: {margin: `${0} ${12}px ${10}px`}}, DOM[0]], 
+            [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, [[`span`, {style: {color: `#7d7d7d`, [`font-family`]: `aspg`, [`font-weight`]: 300}}, new Date(parseInt(Arg[0])).toLocaleString()]]]]]]]]];
     }
   }
 };

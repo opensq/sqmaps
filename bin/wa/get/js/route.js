@@ -28,6 +28,12 @@ class Route {
 
     if (State.length === 4 && State[3] === ``) {
 
+      View.pop();
+
+      View.DOM([`#app`, [Models.app.main()]]);
+
+      /**
+
       let Situ = [], Byline = [];
 
       for (let ts in Open) { 
@@ -52,6 +58,8 @@ class Route {
       View.DOM([`#app`, Models.app.metal([Situ[0], Byline.reverse()])]);
 
       Event.illustrate(Obj);
+
+      **/
 
       /**
 
@@ -183,6 +191,16 @@ class Route {
 
     if (State.length === 5) {
 
+      if (SDATA[State[4]] && State[3] === `data`) {
+
+        document.title = `${SDATA[State[4]][2]} | OPENSQ`;
+
+        View.pop();
+
+        View.DOM([`#app`, [Models.app.data([State[4], []])]]);
+
+      }
+
       if (Open[State[4]] && State[3] === Open[State[4]][0]) {
 
         document.title = `${Open[State[4]][1]} | Opensq`;
@@ -207,11 +225,45 @@ class Route {
 
 Route = new Route();
 
+const SDATA = {
+  [1777742487952]: [0, [`us`], `Alex Bores becomes proxy for Crypto vs AI wealth Battle over Regulation`, {quotes: []}],
+  [1777666598622]: [
+    0, [`us`], `Israel's Center leadership Seeks to win back Democrats`, 
+    {quotes: [
+      [`Rahm Emanuel`, 
+        `chief of staff to President Barack Obama`, 
+        [`The right question is not whether they repair relations with Democrats, it’s whether they repair relationships with the public in Europe and the United States,” he said. “Now, I think on the present course, it tells you everything you need to know, because I don’t see any way of changing.`]],
+      [`Yair Lapid`, 
+        `Party Leader, Yesh Atid`, 
+        [`The larger portion of Democrats are still the kind of people I know how to talk with. And of course, that’s true on the Republican side as well,” Lapid said. “And what was missing in the equation is an Israeli government that is preoccupied with this, committed to, focused on its importance for our national security.`]],
+      [`Ilan Goldenberg`, 
+        `chief policy officer, J Street`, [`Netanyahu leaving would create an opportunity, but these new Israeli leaders will have to follow through with action if they really want to start changing the relationship with the Democratic Party, That would include doing much more to stop Israeli settler violence against Palestinians in the West Bank, taking immediate steps to do more to improve peoples’ lives in Gaza, prioritizing diplomacy to address security concerns in Lebanon and doing the same in Iran rather than drawing the U.S. into conflict there`]],
+      [`Jeanne Shaheen`, `US Senator (Democrat), New Hampshire`, 
+        [`I have been deeply disappointed by Prime Minister Benjamin Netanyahu and his government, whose conduct in recent years has done real damage to the longstanding bipartisan support for Israel in the United States and raised serious concerns among Democrats, Repairing that trust will require a renewed commitment to democratic principles, restraint and a serious effort to pursue lasting peace and stability in the region.`]],
+      [`Shelly Tal Meron`, 
+        `Member, Yesh Atid Party`, 
+        [`I really feel bad with what this government has done through our relations with the United States, especially when it comes to the Democrats,” Meron said. “I don’t know what this government is doing with Democrats. They’re ignoring them.`]],
+      [`Dahlia Scheindlin`, 
+        `political strategist & public opinion expert, tel aviv`, 
+        [
+          `In Israel, the overwhelming perspective portrayed by everybody, whether it’s Netanyahu or the mainstream media, is Democrats as having become just irreparably, irredeemably anti-Israel`, 
+          `Between Trump and Netanyahu, they’re turning the whole concept of liberal democracy on its head, both for America and Israel, calling into question whether the world runs on that currency anymore.`]], 
+      ]}]
+}
+
+const Mug = {
+
+  [`Dahlia Scheindlin`]: [`1777725298656`],
+  [`Ilan Goldenberg`]: [`1777737835665`],
+  [`Jeanne Shaheen`]: [`1777738600102`],
+  [`Rahm Emanuel`]: [`1777734472154`], 
+  [`Shelly Tal Meron`]: [`1777739484806`],
+  [`Yair Lapid`]: [`1777735467881`]
+}
+
 const Open = {
 
-  [1770566116156]: [
-    `ca`, 
-    `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`, [-122.0842, 37.2], 12000, `tech monopolies test ca labor`],
-  [1770821887204]: [`ca`, `ICEout.tech Signatories Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`, [-122.15308, 37.48116], 40000, `iceout san francisco`],
+  //[1770566116156]: [`ca`, `Silicon Valley Money Fronts As Affordability Drive To Counter Labor Progressives & Wealth Tax`, [-122.0842, 37.2], 12000, `tech monopolies test ca labor`],
+  //[1770821887204]: [`ca`, `ICEout.tech Signatories Highlights Glaring Disparity Between Silicon Valley Labor & C-Suite`, [-122.15308, 37.48116], 40000, `iceout san francisco`],
   [1771789645312]: [`us`, `Palantir Money Running Through Democrat Campaigns`, [-75.8926,42.74114], 3000, `palantir funded democrats`]
 } 

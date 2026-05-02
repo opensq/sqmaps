@@ -20,7 +20,7 @@
   font-family: intext;
   font-style: normal;
   font-weight: 100;  
-  src: url(/wa/get/font/PFDinTextUniversalLight.otf) format("opentype")
+  src: url(/wa/get/font/PFDinTextUniversalLight.otf) format("opentype");
 }
 
 @font-face {
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: aspg;
-  src: url(/wa/get/font/Aspergit.otf) format('opentype');
+  src: url('/wa/get/font/ab.otf') format('opentype');
   font-style: normal;
   font-weight: 100;
 }
@@ -44,6 +44,32 @@
   font-weight: 100;
 }
 
+@font-face {
+  font-family: osq;
+  font-style: normal;
+  font-weight: 100;
+  src: url(/wa/get/font/opensq.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: eweb;
+  src: url(/wa/get/font/es.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: dweb;
+  font-style: normal;
+  font-weight: 100;
+  src: url(/wa/get/font/dinweb.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: gweb;
+  font-style: normal;
+  font-weight: 100;
+  src: url(/wa/get/font/gweb.woff2) format("woff2");
+}
+
 a, article, body, div, footer, form, h1, h2, h3, h4, header, html, img, label, li, nav, p, section, span, time, ul {
   margin: 0;
   padding: 0;
@@ -53,7 +79,7 @@ a, article, body, div, footer, form, h1, h2, h3, h4, header, html, img, label, l
 }
 
 a, a:visited {
-  color: #003569;
+  /*color: #003569;*/
   text-decoration: none;
 }
 
@@ -83,8 +109,7 @@ a, a:visited {
 }
 
 #app, body, html {
-  height: 100%;  
-  line-height: 24px;
+  height: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -94,8 +119,8 @@ body, button, input, textarea {
 
 body {  
   color: #191414;
-  font-family: opensq;
-  font-size: 16px;
+  font-family: eweb;
+  font-size: 11.88px;
   font-weight: 300;
 }
 
@@ -541,58 +566,30 @@ body {
 
 .atxt:hover, footer a:hover, .tally-txt:hover {text-decoration: underline;}
 
-@media (min-width: 600px) {
+main section {border-bottom: 1px solid #e7e7e7; /*border-radius: 12px*/}
 
-  #mugs {justify-content: center;}
+section a {color: #000; font-weight: 300;}
 
-  #mugs > ._aXZ {border: 1px solid #f4f4f4;border-radius: 4px;margin: 55px 0}
+section a:hover {text-decoration: underline;}
 
-  #clientSlot h2, #mugin h2, #vowCoin h2 {letter-spacing: -.5px;font-size: 28px;font-weight:normal;line-height: 36px;color:#000;}
-}
+@media (min-width: 600px) {}
 
-@media (max-width: 920px) {
+@media (max-width: 920px) {}
 
-	._wrap_202203262208 #coin, ._wrap_202203262208 #coin-meta, ._wrap_202203262208 #pitaxis, ._wrap_202203262208 #pittools, 
-	._wrap_202203262208 #put, ._wrap_202203262208 #take {
-		width: 100%; padding: 0 }
-
-	._wrap_202203262208 #coin-meta, ._wrap_202203262208 #pittools, ._wrap_202203262208 #take { margin-top: 45px }
-}
-
-@media (max-width: 620px) {
-
-  .spot-margin-box, .spot-title-box, .spot-wallet-box, .trail-a-box, .trail-z-box {width: 100%}
-
-  .spot-margin-box, .spot-wallet-box, .trail-z-box {padding-left: 0}
-
-  .flex-y {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-}
+@media (max-width: 620px) {}
 
 @media (max-width: 599px) {
-
-  #clientSlot h2, #mugin h2, #vowCoin h2 {font-size: 25px;line-height: 28px}
-
-  #buy, #buyline {width: 100%; padding: 0; text-align: center;}
-
-  #buyline {margin-top: 24px}
-
-  #buy div {align-items: unset;}
-
-  #quant, #quantsvg {width: 100%}
-
-  #bitpit, #bitpitsvg {width: 100%; padding: 0}
 
   .unsqueeze {align-items: unset; flex: unset;}
 
   .foot {width: 50%}
 
   .wallet-text {padding: 6px 8px; font-size: 11px; text-align: center;}
+}
+
+@media (max-width: 540px) {
+
+  main section {border: none;border-bottom: 1px solid #e7e7e7;border-radius: 0}
 }
 
 @media (max-width: 400px) {
