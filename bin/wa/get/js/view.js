@@ -232,10 +232,51 @@ let Models = {
             [[`a`, {href: `/`, style: {color: `#000`, [`font-family`]: `aspg`, [`font-size`]: `${12.88}px`, [`font-weight`]: 600, width: `max-content`}}, `OPENSQ`]]]]], 
         [`div`, {style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, 
           [[`section`, {style: {}}, 
-            [[`a`, {href: `/data/${Arg[0]}`, style: {padding: `${10}px ${12}px`}}, SDATA[Arg[0]][2]], 
+            [[`a`, {href: `/data/${Arg[0]}`, style: {padding: `${10}px ${12}px`}}, SDATA[Arg[0]][2]], (Models.SVG[Arg[0]])? Models.SVG[Arg[0]][0](): [],
             [`div`, {class: ``, style: {margin: `${0} ${12}px ${10}px`}}, DOM[0]], 
             [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, [[`span`, {style: {color: `#7d7d7d`, [`font-family`]: `aspg`, [`font-weight`]: 300}}, new Date(parseInt(Arg[0])).toLocaleString()]]]]]]]]];
     }
+  },
+
+  SVG: {
+
+    [1777742487952]: [
+      () => {
+
+        return [`svg`, {height: `${500}px`, width: `${100}%`}, 
+          [[`line`, {stroke: `#000`, [`stroke-width`]: 2, x1:`${50}%`, x2: `${50}%`, y1: 215, y2: 0}],
+          [`line`, {stroke: `#000`, [`stroke-width`]: 2, x1:`${50}%`, x2: 0, y1: 10, y2: 10}],
+          [`text`, {style: {}, [`text-anchor`]: ``, x: `${2}%`, y: 22}, `Anthropic`],
+          [`line`, {stroke: `#000`, x1:`${16}%`, x2: `${16}%`, y1: 10, y2: 170}],
+          [`line`, {stroke: `#000`, x1:`${16}%`, x2: `${16}%`, y1: 180, y2: 200}],
+          [`line`, {stroke: `#000`, x1:`${16}%`, x2: `${50}%`, y1: 200, y2: 200}],
+          [`text`, {style: {[`font-family`]: `insvg`}, [`text-anchor`]: `middle`, x: `${30}%`, y: 212}, `$1M`],
+          [`text`, {style: {}, [`text-anchor`]: `middle`, x: `${16}%`, y: 179}, `Jobs & Democracy PAC`],
+          [`line`, {stroke: `#000`, x1:`${25}%`, x2: `${25}%`, y1: 10, y2: 110}],
+          [`text`, {style: {[`font-family`]: `insvg`, transform: `translateX(${4}px)`}, [`text-anchor`]: ``, x: `${25}%`, y: 70}, `$20M`],
+          [`text`, {style: {transform: `translateX(${-18}px)`}, [`text-anchor`]: ``, x: `${25}%`, y: 119}, `Public First PAC`],
+          [`line`, {stroke: `#000`, x1:`${25}%`, x2: `${25}%`, y1: 120, y2: 145}],
+          [`line`, {stroke: `#000`, x1:`${25}%`, x2: `${50}%`, y1: 145, y2: 145}],
+          [`text`, {style: {[`font-family`]: `insvg`}, [`text-anchor`]: `middle`, x: `${35}%`, y: 160}, `$1.5M`],
+          [`circle`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, cx: `${50}%`, cy: `${230}px`, r: `${15}px`}], 
+          [`text`, {style: {transform: `translateX(${-18}px)`, }, [`text-anchor`]: `end`, x: `${50}%`, y: `${235}px`}, `Alex Bores`], 
+          [`circle`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, cx: `${50}%`, cy: `${270}px`, r: `${15}px`}],
+          [`text`, {style: {transform: `translateX(${18}px)`, }, [`text-anchor`]: ``, x: `${50}%`, y: `${275}px`}, `Opposition`],
+          [`line`, {stroke: `#000`, [`stroke-width`]: 2, x1:`${50}%`, x2: `${50}%`, y1: 285, y2: 500}],
+          [`text`, {style: {[`font-family`]: `insvg`}, [`text-anchor`]: `middle`, x: `${75}%`, y: 365}, `$2M`],
+          [`line`, {stroke: `#000`, x1:`${50}%`, x2: `${85}%`, y1: 370, y2: 370}],
+          [`line`, {stroke: `#000`, [`stroke-width`]: 1, x1:`${85}%`, x2: `${85}%`, y1: 370, y2: 407}],
+          [`text`, {style: {}, [`text-anchor`]: `end`, x: `${85}%`, y: 420}, `Leading the Future PAC`],
+          [`line`, {stroke: `#000`, [`stroke-width`]: 1, x1:`${85}%`, x2: `${85}%`, y1: 425, y2: 490}],
+          [`text`, {style: {[`font-family`]: `insvg`}, [`text-anchor`]: `middle`, x: `${65}%`, y: 305}, `$2M+`],
+          [`line`, {stroke: `#000`, x1:`${50}%`, x2: `${87}%`, y1: 310, y2: 310}],
+          [`line`, {stroke: `#000`, [`stroke-width`]: 1, x1:`${87}%`, x2: `${87}%`, y1: 332, y2: 310}],
+          [`text`, {style: {}, [`text-anchor`]: `middle`, x: `${87}%`, y: 345}, `Think Big PAC`],
+          [`line`, {stroke: `#000`, [`stroke-width`]: 1, x1:`${87}%`, x2: `${87}%`, y1: 350, y2: 490}],
+          [`text`, {style: {}, [`text-anchor`]: `end`, x: `${98}%`, y: 485}, `OpenAI`],
+          [`line`, {stroke: `#000`, [`stroke-width`]: 2, x1:`${50}%`, x2: `${100}%`, y1: 490, y2: 490}]]];
+      },
+    ]
   }
 };
 
