@@ -132,14 +132,15 @@ let Models = {
         DOM[0].push([`section`, {style: {}}, 
           [[`a`, {href: `/data/${ts}`, style: {padding: `${10}px ${12}px`}}, SDATA[ts][2]], 
             [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, DOM[1]], 
-            [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, [[`span`, {style: {color: `#7d7d7d`, [`font-family`]: `intext`, [`font-size`]: `${10.88}px`, [`font-weight`]: 300}}, new Date(parseInt(ts)).toLocaleString()]]]]]);
+            [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, 
+              [[`span`, {style: {color: `#7d7d7d`, [`font-family`]: `intext`, [`font-size`]: `${9.88}px`, [`font-weight`]: 300}}, new Date(parseInt(ts)).toLocaleString()]]]]]);
       });
 
       return [`main`, {}, 
         [[`header`, {style: {background: `#fff`, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
-          [[`div`, {style: {[`border-bottom`]: `${1}px solid #e7e7e7`, margin: `auto`, [`max-width`]: `${540}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
+          [[`div`, {style: {[`brder-bottom`]: `${1}px solid #e7e7e7`, margin: `auto`, [`max-width`]: `${540}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
             [[`a`, {href: `/`, style: {color: `#000`, [`font-family`]: `aspg`, [`font-size`]: `${12.88}px`, [`font-weight`]: 600, width: `max-content`}}, `OPENSQ`]]]]], 
-        [`div`, {style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, DOM[0]]]];
+        [`div`, {id: `slack`, style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, DOM[0]]]];
     },
 
     metal: (Arg) => {
@@ -228,7 +229,7 @@ let Models = {
 
       return [`main`, {}, 
         [[`header`, {style: {background: `#fff`, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
-          [[`div`, {style: {[`border-bottom`]: `${1}px solid #e7e7e7`, margin: `auto`, [`max-width`]: `${540}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
+          [[`div`, {style: {[`brder-bottom`]: `${1}px solid #e7e7e7`, margin: `auto`, [`max-width`]: `${540}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
             [[`a`, {href: `/`, style: {color: `#000`, [`font-family`]: `aspg`, [`font-size`]: `${12.88}px`, [`font-weight`]: 600, width: `max-content`}}, `OPENSQ`]]]]], 
         [`div`, {style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, 
           [[`section`, {style: {}}, 
@@ -243,7 +244,7 @@ let Models = {
     [1777742487952]: [
       () => {
 
-        return [`svg`, {height: `${500}px`, width: `${100}%`}, 
+        return [`svg`, {height: `${500}px`, width: `${100}%`, style: {[`font-family`]: `aspg`, [`font-size`]: `${8.88}px`, [`text-transform`]: `uppercase`}}, 
           [[`line`, {stroke: `#000`, [`stroke-width`]: 2, x1:`${50}%`, x2: `${50}%`, y1: 215, y2: 0}],
           [`line`, {stroke: `#000`, [`stroke-width`]: 2, x1:`${50}%`, x2: 0, y1: 10, y2: 10}],
           [`text`, {style: {}, [`text-anchor`]: ``, x: `${2}%`, y: 22}, `Anthropic`],

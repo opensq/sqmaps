@@ -227,7 +227,7 @@ Route = new Route();
 
 const SDATA = {
   [1777742487952]: [
-    0, [`us`], `Alex Bores becomes proxy for Crypto vs AI wealth Battle over Regulation`, 
+    0, [`us`, `ny`], `Alex Bores' primary fight becomes proxy for Big AI Regulation Battle`, 
     {quotes: [
       [
         `Chris Larsen`, 
