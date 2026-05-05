@@ -226,8 +226,12 @@ class Route {
 Route = new Route();
 
 const SDATA = {
+  [1778008426864]: [
+    0, [`us`, `mn`], `Anthropic furthers domination in Wall Street with more patnerships`, {quotes: []}],
+  [1778007285858]: [
+    0, [`us`, `mn`], `VA internally investigated employees who participated in Alex Pretti's vigil`, {quotes: []}],
   [1777742487952]: [
-    0, [`us`, `ny`], `Alex Bores' primary fight becomes proxy for Big AI Regulation Battle`, 
+    1777742487952, [`us`, `ny`], `Alex Bores' primary fight becomes proxy for Big AI Regulation Battle`, 
     {quotes: [
       [
         `Chris Larsen`, 
@@ -236,7 +240,7 @@ const SDATA = {
           `They are trying to destroy and intimidate and send a clear message that if you do come up with clear guardrails, we
 are going to crush you, While some of these folks are going to try to crush you, others are going to step up, and we’re going to support you.`]], [`Alex Bores`, `NY-CD12 primary candidate (D)`, []]]}],
   [1777666598622]: [
-    0, [`us`], `Israel's Center leadership Seeks to win back Democrats`, 
+    1777666598622, [`us`], `Israel's Center leadership Seeks to win back Democrats`, 
     {quotes: [
       [`Rahm Emanuel`, 
         `chief of staff to President Barack Obama`, 

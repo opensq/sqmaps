@@ -130,7 +130,7 @@ let Models = {
         });
 
         DOM[0].push([`section`, {style: {}}, 
-          [[`a`, {href: `/data/${ts}`, style: {padding: `${10}px ${12}px`}}, SDATA[ts][2]], 
+          [[`a`, {href: (SDATA[ts][0] > 0)? `/data/${ts}`: `javascript:;`, style: {padding: `${10}px ${12}px`}}, SDATA[ts][2]], 
             [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, DOM[1]], 
             [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, 
               [[`span`, {style: {color: `#7d7d7d`, [`font-family`]: `intext`, [`font-size`]: `${9.88}px`, [`font-weight`]: 300}}, new Date(parseInt(ts)).toLocaleString()]]]]]);
@@ -240,7 +240,6 @@ let Models = {
   },
 
   SVG: {
-
     [1777742487952]: [
       () => {
 

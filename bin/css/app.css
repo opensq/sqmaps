@@ -70,6 +70,20 @@
   src: url(/wa/get/font/gweb.woff2) format("woff2");
 }
 
+@font-face {
+  font-family: ave;
+  font-style: normal;
+  font-weight: 100;
+  src: url(/wa/get/font/ave.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: pxa;
+  font-style: normal;
+  font-weight: 100;
+  src: url(/wa/get/font/pxa.woff2) format("woff2");
+}
+
 a, article, body, div, footer, form, h1, h2, h3, h4, header, html, img, label, li, nav, p, section, span, time, ul {
   margin: 0;
   padding: 0;
