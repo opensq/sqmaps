@@ -4,7 +4,7 @@ const { createSecureServer } = require(`http2`);
 
 const { createHash } = require(`crypto`);
 
-const { readFileSync } = require(`fs`);
+const { readdir, readFileSync } = require(`fs`);
 
 const { Sql, Tools } = require(`./tools`);
 

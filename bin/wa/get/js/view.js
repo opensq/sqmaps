@@ -137,10 +137,10 @@ let Models = {
       });
 
       return [`main`, {}, 
-        [[`header`, {style: {background: `#fff`, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
+        [[`header`, {style: {background: `#fff`, [`box-shadow`]: `rgba(${10}, ${14}, ${29}, ${0.2}) 0 ${8}px ${64}px ${4}px`, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
           [[`div`, {style: {[`brder-bottom`]: `${1}px solid #e7e7e7`, margin: `auto`, [`max-width`]: `${540}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
             [[`a`, {href: `/`, style: {color: `#000`, [`font-family`]: `aspg`, [`font-size`]: `${12.88}px`, [`font-weight`]: 600, width: `max-content`}}, `OPENSQ`]]]]], 
-        [`div`, {id: `slack`, style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, DOM[0]]]];
+        [`div`, {id: `slack`, style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, DOM[0]], Models.app.tick()]];
     },
 
     metal: (Arg) => {
@@ -236,6 +236,26 @@ let Models = {
             [[`a`, {href: `/data/${Arg[0]}`, style: {padding: `${10}px ${12}px`}}, SDATA[Arg[0]][2]], (Models.SVG[Arg[0]])? Models.SVG[Arg[0]][0](): [],
             [`div`, {class: ``, style: {margin: `${0} ${12}px ${10}px`}}, DOM[0]], 
             [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, [[`span`, {style: {color: `#7d7d7d`, [`font-family`]: `aspg`, [`font-weight`]: 300}}, new Date(parseInt(Arg[0])).toLocaleString()]]]]]]]]];
+    },
+
+    tick: (Arg) => {
+
+      return [`div`, {style: {bottom: 0, [`box-shadow`]: `rgba(${10}, ${14}, ${29}, ${0.2}) 0 ${8}px ${64}px ${4}px`, position: `fixed`, width: `${100}%`, [`z-index`]: 2}}, 
+        [[`div`, {style: {margin: `auto`, [`max-width`]: `${540}px`, width: `${100}%`}}, 
+          [[`div`, {class: `_gxM _geQ`}, 
+            [[`a`, {id: ``, href: `javascript:;`, class: `_gxM`, style: {[`align-items`]: `center`, [`border-right`]: `1px solid #e3e3e3`, color: `#000`, display: `flex`, [`font-family`]: ``, [`font-size`]: `${11.88}px`, padding: `${12}px ${12}px`}}, 
+              [[`span`, {}, `Forex`],
+              [`svg`, {viewbox: `0 0 24 24`, style: {height: `${8}px`, [`margin-left`]: `${6}px`, width: `${8}px`}}, 
+                [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M0 6 12 18 24 6`}]]]]], 
+              [`div`, {class: `_eYG _geQ _gxM`, style: {}}, 
+                [[`div`, {class: `_geQ _gxM`, style: {[`width`]: `${30}%`}}, 
+                  [[`a`, {href: ``, class: `_gxM`, style: {[`align-items`]: `baseline`, color: `#000`, display: `flex`, [`margin-left`]: `${6}px`}}, 
+                    [[`span`, {id: `asset`, style: {[`font-size`]: `${11.88}px`, [`font-weight`]: 300, overflow: `hidden`, [`text-overflow`]: `ellipsis`, [`text-transform`]: `uppercase`}}, `BTC`], 
+                    [`span`, {id: `curr`, style: {color: `#8e8e8e`, [`font-size`]: `${11.88}px`, [`font-weight`]: 300, overflow: `hidden`, [`text-overflow`]: `ellipsis`, [`text-transform`]: `uppercase`}}, `/USD`]]]]],
+                [`div`, {style: {width: `${30}%`}}, 
+                  [[`span`, {id: `COST`, style: {[`font-size`]: `${11.88}px`,[`font-weight`]: 300, [`letter-spacing`]: `${.25}px`, [`text-align`]: `right`}}, ``]]], 
+                [`div`, {style: {width: `${40}%`}}, 
+                  [[`span`, {id: `MOD`, style: {color: `#02ff02`, [`font-size`]: `${11.88}px`, [`font-weight`]: 300, [`letter-spacing`]: `${.25}px`, [`text-align`]: `right`}}, ``]]]]]]]]]]];
     }
   },
 

@@ -79,7 +79,7 @@ class Sql {
 
 class Tools {
 
-  constructor () {}
+  constructor () { this.Y24 = [{}, {}]; }
 
   coats (types) { return JSON.stringify(types) }
 

@@ -83,6 +83,12 @@ class Route {
 
     App.on(`connection`, Polling => {
 
+    setInterval(() => {
+
+      Tools.Y24 = Tools.typen(readFileSync(`bin/json/index.json`, {encoding: `utf8`}));
+
+    }, 4000);
+
       Polling.on(`data`, Arg => {
 
         if (existsSync(`bin/json/${Arg[1]}.json`) === true) {
@@ -90,6 +96,16 @@ class Route {
           App.emit(`data`, [Arg[0], Tools.typen(readFileSync(`bin/json/${Arg[1]}.json`, {encoding: `utf8`}))]);
         }
       });
+
+      setInterval(() => {console.log(Tools.Y24)
+
+        let YValue = [];
+
+        for (let plot in Tools.Y24[0]) {YValue.push([plot, Tools.Y24[0][plot]])}
+
+        App.emit(`Y24`, [YValue, Tools.Y24[1]]);
+
+      }, 1000);
     });
   }
 }

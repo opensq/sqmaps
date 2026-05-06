@@ -288,6 +288,52 @@ class Event {
 
   app (Arg) {
 
+    let PAIR = [`AUD-USD`, `EUR-USD`, `GBP-USD`, `NZD-USD`, `USD-CAD`, `USD-CHF`, `USD-NOK`, `USD-SEK`], TICK = {}, Y = [];
+
+    io().on(`Y24`, Y24 => {
+
+      Y24[0].forEach(AB => {
+
+        if (PAIR.indexOf(AB[0]) > -1) {
+
+          let P24 = [];
+
+          Y24[1][AB[0]].forEach(XY => {
+
+            if (XY[1] > (new Date().valueOf() - 3600000*24) - 3000 && XY[1] < (new Date().valueOf() - 3600000*24) + 3000) P24.push(XY);
+          });
+
+          TICK[AB[0]] = [AB[1], (P24.length > 0)? `${(((AB[1] - P24[0][0])/AB[1])*100)}%`: ``, (P24.length > 0)? parseFloat(P24[0][0]): ``];
+        } 
+      });
+    });
+
+    let PA = Tools.typen(Tools.coats(PAIR)), i = 0;
+
+    setInterval(() => {console.log(TICK)
+
+      if (i > PAIR.length) {i = 0}
+
+      if (TICK[PAIR[i]]) {console.log(i)
+
+        if (document.querySelector(`#asset`)) {
+
+          document.querySelector(`#asset`).innerHTML = PAIR[i].split(`-`)[0];
+
+          document.querySelector(`#curr`).innerHTML = `/${PAIR[i].split(`-`)[1]}`;
+
+          document.querySelector(`#COST`).innerHTML = TICK[PAIR[i]][0];
+
+          //document.querySelector(`#MOD`).innerHTML = `${(TICK[PAIR[i]][1]).toFixed(2)}%`;
+
+          //document.querySelector(`#MOD`).style.color = (TICK[PAIR[i]][0] > parseFloat(TICK[PAIR[i]][2]))? `#02ff02`: `red`;
+        }
+      }
+
+      i++
+
+    }, 4000);
+
     document.querySelectorAll(`.atxt`).forEach(VAR => {
 
       this.listen([VAR, `click`, S => {
