@@ -247,7 +247,7 @@ let Models = {
               [[`span`, {}, `Forex`],
               [`svg`, {viewbox: `0 0 24 24`, style: {height: `${8}px`, [`margin-left`]: `${6}px`, width: `${8}px`}}, 
                 [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M0 6 12 18 24 6`}]]]]], 
-              [`div`, {class: `_eYG _geQ _gxM`, style: {}}, 
+              [`div`, {class: `_eYG _geQ _gxM`, style: {[`font-family`]: `insvg`}}, 
                 [[`div`, {class: `_geQ _gxM`, style: {[`width`]: `${30}%`}}, 
                   [[`a`, {href: ``, class: `_gxM`, style: {[`align-items`]: `baseline`, color: `#000`, display: `flex`, [`margin-left`]: `${6}px`}}, 
                     [[`span`, {id: `asset`, style: {[`font-size`]: `${11.88}px`, [`font-weight`]: 300, overflow: `hidden`, [`text-overflow`]: `ellipsis`, [`text-transform`]: `uppercase`}}, `BTC`], 

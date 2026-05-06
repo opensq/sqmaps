@@ -324,9 +324,9 @@ class Event {
 
           document.querySelector(`#COST`).innerHTML = TICK[PAIR[i]][0];
 
-          //document.querySelector(`#MOD`).innerHTML = `${(TICK[PAIR[i]][1]).toFixed(2)}%`;
+          document.querySelector(`#MOD`).innerHTML = (TICK[PAIR[i]][1])
 
-          //document.querySelector(`#MOD`).style.color = (TICK[PAIR[i]][0] > parseFloat(TICK[PAIR[i]][2]))? `#02ff02`: `red`;
+          document.querySelector(`#MOD`).style.color = (TICK[PAIR[i]][0] > parseFloat(TICK[PAIR[i]][2]))? `#02ff02`: `red`;
         }
       }
 
