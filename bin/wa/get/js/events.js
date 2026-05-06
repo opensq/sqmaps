@@ -303,7 +303,7 @@ class Event {
             if (XY[1] > (new Date().valueOf() - 3600000*24) - 3000 && XY[1] < (new Date().valueOf() - 3600000*24) + 3000) P24.push(XY);
           });
 
-          TICK[AB[0]] = [AB[1], (P24.length > 0)? `${(((AB[1] - P24[0][0])/AB[1])*100)}%`: ``, (P24.length > 0)? parseFloat(P24[0][0]): ``];
+          TICK[AB[0]] = [AB[1], (P24.length > 0)? `${(((AB[1] - P24[0][0])/AB[1])*100).toFixed(2)}%`: ``, (P24.length > 0)? parseFloat(P24[0][0]): ``];
         } 
       });
     });
