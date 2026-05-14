@@ -103,7 +103,7 @@ let Models = {
             [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 6, d: `M0 6 12 18 24 6`}]]]]], [`div`, {class: `pMAZ`, style: {display: `none`, [`max-height`]: `${400}px`, [`overflow-y`]: `scroll`, [`scrollbar-width`]: `none`, [`text-align`]: `right`}}, DOM]]];
     },
 
-    main: () => {
+    _main: () => {
 
       let Situ = [];
 
@@ -141,6 +141,16 @@ let Models = {
           [[`div`, {style: {[`brder-bottom`]: `${1}px solid #e7e7e7`, margin: `auto`, [`max-width`]: `${540}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
             [[`a`, {href: `/`, style: {color: `#000`, [`font-family`]: `aspg`, [`font-size`]: `${12.88}px`, [`font-weight`]: 600, width: `max-content`}}, `OPENSQ`]]]]], 
         [`div`, {id: `slack`, style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, DOM[0]], Models.app.tick()]];
+    },
+
+    main: () => {
+
+      return [`main`, {style: {color: `#fff`}}, 
+        [[`header`, {style: {background: ``, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
+          [[`div`, {style: {[`brder-bottom`]: `${1}px solid #e7e7e7`, margin: `auto`, [`max-width`]: `${1000}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
+            [[`a`, {href: `/`, style: {[`font-family`]: `consolas`, [`font-size`]: `${24.88}px`, width: `max-content`}}, 
+              [[`svg`, {vewbox: `0 0 24 24`, style: {[`font-weight`]: 600, height: `${24}px`, fill: `#fff`, width: `${24}px`}}, 
+                [[`text`, {x: 2, y: 23}, `0`], [`text`, {x: 17, y: 12, [`font-size`]: `${10.88}px`}, `2`]]]]]]]]]]];
     },
 
     metal: (Arg) => {

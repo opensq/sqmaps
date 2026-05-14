@@ -18,7 +18,7 @@ class Route {
 
       if (State[1] === `favicon.ico`) {
 
-        let File = createReadStream(`bin/wa/get/ico/202601192137.png`);
+        let File = createReadStream(`bin/wa/get/ico/.202605142100.png`);
 
         Arg[1].writeHead(200, {[`Content-Type`]: `image/png`});
 
