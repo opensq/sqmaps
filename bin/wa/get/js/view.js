@@ -143,77 +143,43 @@ let Models = {
         [`div`, {id: `slack`, style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, DOM[0]], Models.app.tick()]];
     },
 
+    latest: () => {
+
+      let DOM = [[]];
+
+      let Situ = [];
+
+      for (let ts in SDATA) { Situ.push(ts) }
+
+      Situ = Situ.sort((A, B) => {return B - A});
+
+      Situ.forEach((ts, i)=> {
+
+        let DT = new Date(parseInt(ts));
+
+        DOM[0].push([`div`, {class: `_gxM`, style: {[`font-size`]: `${9.88}px`, width: `${100}%`}}, 
+          [[`div`, {}, 
+            [[`span`, {style: {[`algn-self`]: `center`}}, (parseInt(ts) > DAY)? ``: `${DT.toLocaleString().split(`/`)[0]}.${DT.toLocaleString().split(`/`)[1]}.`], 
+            [`span`, {style: {[`margin`]: `${8}px`, background:(i === Situ.length - 1)? ``: `#3a3a3a`, height: `${50}px`, width: `${1}px`}}]]], 
+          [`div`, {style: {flex: 1, [`margin-left`]: `${12}px`, width: `calc(${30}vw - ${53}px)`}}, 
+            [[`span`, {style: {[`text-transform`]: `capitalize`}}, SDATA[ts][4][0]], 
+            [`a`, {href: `javascript:;`, style: {[`align-content`]: `center`, color: `#fff`, height: `${50}px`}}, SDATA[ts][2]]]]]]);
+      });
+
+      return [`div`, {style: {[`margin-top`]: `${24}px`}}, DOM[0]]
+    },
+
     main: () => {
 
       return [`main`, {style: {color: `#fff`}}, 
-        [[`header`, {style: {background: ``, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
-          [[`div`, {style: {[`brder-bottom`]: `${1}px solid #e7e7e7`, margin: `auto`, [`max-width`]: `${1000}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
+        [[`header`, {style: {background: `#0c0f0c`, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
+          [[`div`, {class: `_gxM _geQ`, style: {margin: `auto`, [`max-width`]: `${1400}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
             [[`a`, {href: `/`, style: {[`font-family`]: `consolas`, [`font-size`]: `${24.88}px`, width: `max-content`}}, 
               [[`svg`, {vewbox: `0 0 24 24`, style: {[`font-weight`]: 600, height: `${24}px`, fill: `#fff`, width: `${24}px`}}, 
-                [[`text`, {x: 2, y: 23}, `0`], [`text`, {x: 17, y: 12, [`font-size`]: `${10.88}px`}, `2`]]]]]]]]]]];
-    },
-
-    metal: (Arg) => {
-
-      let Obj = {
-        geo: Open[Arg[0]][0],
-        lead: Open[Arg[0]][1],
-      };
-
-      let DOM = [];
-
-      Arg[1].forEach((Byline, A) => {
-
-        DOM.push([`g`, {}, 
-          [[`text`, {fill: `#000`, x: 1, y: (A*40)+10, [`font-family`]: `insvg`, [`font-size`]: `${12.88}px`}, `${A + 1}.`], 
-          [`text`, {class: `atxt`, url: Byline[0], fill: `#000`, x: 20, y: (A*40)+10, [`font-size`]: `${11.88}px`}, Byline[1]], 
-          [`path`, {display: (A === Arg[1].length - 1)?`none`:`flex`, fill: `none`, stroke: `#000`, [`stroke-width`]: 2, d: `M5 ${(A*40)+14} 5 ${(A*40)+38}`}]]]);
-      });
-
-      return [[`svg`, {style: {background: `#c4d8dd`}}], 
-        [`section`, {id: `byline`, style: {position: `fixed`, left: 0, top: 0, [`z-index`]: 20}}, 
-          [[`svg`, {style: {display: (Arg[1].length === 0)? `none`: `flex`, background: `#ffffffeb`, [`border-radius`]: `${4}px`, [`box-shadow`]: `rgba(${10}, ${14}, ${29}, ${0.08}) 0 ${8}px ${64}px ${4}px`, [`font-family`]: `aspg`, [`font-weight`]: 600, height: `${48*Arg[1].length - 28}px`, margin: `${12}px`, [`text-transform`]: `uppercase`, [`max-width`]: `${400}px`, padding: `${12}px`}}, DOM]]], 
-        [`footer`, {id: `foot`, style: {bckground: `rgba(${217}, ${217}, ${217}, ${0.8})`, bottom: 0, position: `fixed`, width: `${100}%`, [`z-index`]: 18}}, 
-          [[`div`, {style: {bottom: 0, left: 0, margin: `auto`, [`max-width`]: `${640}px`, position: `absolute`, right: 0, width: `${100}%`}}, 
-            [[`div`, {style: {width: `${100}%`}}, 
-              [[`div`, {class: `_gxM _geQ`, style: {[`border-bottom`]: `${1}px solid #ececec`, padding: `${10}px ${16}px`}}, 
-                [[`div`, {style: {width: `${95}%`}},  
-                  [[`a`, {href: `/${Obj.geo}/${Arg[0]}`}, 
-                    [[`h1`, {style: {color: `#000`, [`font-size`]: `${18}px`, [`font-weight`]: 600, [`text-transform`]: `uppercase`}}, Obj.lead]]],
-                    [`div`, {class: `_gxM _geQ`, style: {color: `#9d9d9d`, [`font-weight`]: 300, [`font-size`]: `${9}px`, [`text-transform`]: `uppercase`}}, 
-                      [[`a`, {href: `/${Obj.geo}`}, Constants.pseudo[Obj.geo]]]]]], 
-                                [`div`, {class: `_gZz`}, 
-                                    [[`svg`, {id: `multiClose`, viewbox: `0 0 24 24`, style: {cursor: `pointer`, height: `${12}px`, width: `${12}px`}}, 
-                                        [[`path`, {fill: `none`, stroke: `#000`, [`stroke-width`]: 2, m: `M0 6 12 18 24 6`}]]]]]]]]]]]]], 
-        [`div`, {id: `bubble`, style: {background: `#fff`, border: `${1}px solid #f0f0f0de`, [`border-radius`]: `${8}px`, [`box-shadow`]: `${0} ${8}px ${64}px ${4}px rgba(${10},${14},${29},${.08})`, display: `none`, [`font-size`]: `${11}px`, [`min-width`]: `${160}px`, position: `absolute`, left: 0, top: `${38}px`, [`z-index`]: 24}}, 
-          [[`div`, {style: {[`font-size`]: `${11}px`, margin: `${2}px ${8}px`}}, 
-            [[`div`, {class: `_gxM _geQ`}, 
-              [[`span`, {}, `CURRENT SIGNATORIES`], [`div`, {class: `_gZz`}, [[`span`, {id: `tally`, style:{ [`font-family`]: `insvg`, [`font-weight`]: 600}}, ``]]]]],
-            [`div`, {class: `_gxM`, style: {color: `#909090`, [`font-family`]: `aspg`, [`font-size`]: `${8}px`, [`text-transform`]: `uppercase`}}, 
-              [[`span`, {}, `data by`], [`a`, {href: `https://iceout.tech`, style: {[`margin-left`]: `${4}px`, [`text-decoration`]: `underline`}}, `iceout.tech`]]]]]]], 
-        [`section`, {id: `polmultiple`, style: {[`font-family`]: `opensq`, [`font-size`]: `${10.88}px`, [`font-weight`]: 300, [`letter-spacing`]: `${.75}px`, position: `fixed`, right: 0, top: 0, [`z-index`]: 18}}, ]];
-    },
-
-    bubbly: (Arg) => {
-
-      if (Arg[0] === 1771789645312) {
-
-        let DOM = [];
-
-        Arg[1].forEach(Obj => {
-
-          DOM.push([`div`, {style: {padding: `${4}px ${8}px ${0} ${8}px`}}, 
-            [[`span`, {style: {[`text-decoration`]: `underline`}}, Obj[0]], 
-            [`div`, {class: `_gxM _geQ`, style: {[`font-family`]: `insvg`}}, 
-              [[`span`, {}, `2024.`], 
-              [`div`, {class: `_gZz`}, [[`span`, {style: {[`text-align`]: `right`, [`font-weight`]: 600}}, `$${Obj[1]}`]]]]]]])
-        });
-
-        return [`div`, {style: {[`letter-spacing`]: `${.75}px`}}, 
-          [[`div`, {style: {[`border-bottom`]: `${1}px solid #f0f0f0`, padding: `${2}px ${8}px`}}, 
-            [[`span`, {style: {[`font-weight`]: 600, [`text-transform`]: `uppercase`}}, `${Constants.pseudo[(Arg[1][0][6][0].toLowerCase())][0]} district ${parseInt(Arg[1][0][6][1])}`]]], 
-          [`div`, {style: {blank: `${2}px ${8}px`}}, DOM]]];
-      }
+                [[`text`, {x: 2, y: 23}, `0`], [`text`, {x: 17, y: 12, [`font-size`]: `${10.88}px`}, `2`]]]]], 
+            [`div`, {class: `_gZz`}, [[`a`, {href: `javascript:;`, style: {border: `${1}px solid #8f8f8f`, color: `#fff`, [`font-family`]: `aspg`, padding: `${8}px ${12}px`, [`text-transform`]: ``}}, `Buy Us Coffee`]]]]]]], 
+        [`div`, {id: `ylva`, class: ``, style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${1400}px`, width: `${100}%`}}, 
+          [[`section`, {class: `s2`}, [[`h1`, {}, `latest`], Models.app.latest()]], [`section`, {class: `s0`}, [[`h1`, {}, `top stories`]]], [`section`, {class: `s2`}, [[`h1`, {}, `finance`], Models.app.timeline()]]]]]];
     },
 
     data: (Arg) => {
@@ -248,9 +214,38 @@ let Models = {
             [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, [[`span`, {style: {color: `#7d7d7d`, [`font-family`]: `aspg`, [`font-weight`]: 300}}, new Date(parseInt(Arg[0])).toLocaleString()]]]]]]]]];
     },
 
+    timeline: () => {
+
+      let DOM = [[]];
+
+      let Situ = [];
+
+      for (let ts in SDATA) {
+
+        if (SDATA[ts][4][0] === `finance`) { Situ.push(ts) }
+      }
+
+      Situ = Situ.sort((A, B) => {return B - A});
+
+      Situ.forEach((ts, i)=> {
+
+        let DT = new Date(parseInt(ts));
+
+        DOM[0].push([`div`, {class: `_gxM`, style: {[`font-size`]: `${9.88}px`, width: `${100}%`}}, 
+          [[`div`, {}, 
+            [[`span`, {style: {[`algn-self`]: `center`}}, (parseInt(ts) > DAY)? ``: `${DT.toLocaleString().split(`/`)[0]}.${DT.toLocaleString().split(`/`)[1]}.`], 
+            [`span`, {style: {[`margin`]: `${8}px`, background:(i === Situ.length - 1)? ``: `#3a3a3a`, height: `${50}px`, width: `${1}px`}}]]], 
+          [`div`, {style: {flex: 1, [`margin-left`]: `${12}px`, width: `calc(${30}vw - ${53}px)`}}, 
+            [[`span`, {style: {[`text-transform`]: `capitalize`}}, SDATA[ts][4][1]], 
+            [`a`, {href: `javascript:;`, style: {[`align-content`]: `center`, color: `#fff`, height: `${50}px`}}, SDATA[ts][2]]]]]]);
+      });
+
+      return [`div`, {style: {[`margin-top`]: `${24}px`}}, DOM[0]]
+    },
+
     tick: (Arg) => {
 
-      return [`div`, {style: {bottom: 0, [`box-shadow`]: `rgba(${10}, ${14}, ${29}, ${0.2}) 0 ${8}px ${64}px ${4}px`, position: `fixed`, width: `${100}%`, [`z-index`]: 2}}, 
+      return [`div`, {style: {bottom: 0, position: `fixed`, width: `${100}%`, [`z-index`]: 2}}, 
         [[`div`, {style: {margin: `auto`, [`max-width`]: `${540}px`, width: `${100}%`}}, 
           [[`div`, {class: `_gxM _geQ`}, 
             [[`a`, {id: ``, href: `javascript:;`, class: `_gxM`, style: {[`align-items`]: `center`, [`border-right`]: `1px solid #e3e3e3`, color: `#000`, display: `flex`, [`font-family`]: ``, [`font-size`]: `${11.88}px`, padding: `${12}px ${12}px`}}, 

@@ -227,11 +227,11 @@ Route = new Route();
 
 const SDATA = {
   [1778082808368]: [
-    0, [`global`, ``], `Iran war provides vindication for clean energy with signs of adoption boost.`, {quotes: []}],
+    0, [`global`, ``], `Iran war provides vindication for clean energy with signs of adoption boost.`, {quotes: []}, [`technology`]],
   [1778008426864]: [
-    0, [`us`, `mn`], `Anthropic dominates AI in Wall Street with more patnerships and new financial agents launch`, {quotes: []}],
+    0, [`us`, `mn`], `Anthropic dominates AI in Wall Street with more patnerships and new financial agents launch`, {quotes: []}, [`finance`, `AI`]],
   [1778007285858]: [
-    0, [`us`, `mn`], `VA internally investigated employees who participated in Alex Pretti's vigil`, {quotes: []}],
+    0, [`us`, `mn`], `VA internally investigated employees who participated in Alex Pretti's vigil`, {quotes: []}, [`politics`]],
   [1777742487952]: [
     1777742487952, [`us`, `ny`], `Alex Bores' primary fight becomes proxy for Big AI Regulation Battle`, 
     {quotes: [
@@ -240,7 +240,7 @@ const SDATA = {
         `cofounder, Ripple Labs`, 
         [
           `They are trying to destroy and intimidate and send a clear message that if you do come up with clear guardrails, we
-are going to crush you, While some of these folks are going to try to crush you, others are going to step up, and we’re going to support you.`]], [`Alex Bores`, `NY-CD12 primary candidate (D)`, []]]}],
+are going to crush you, While some of these folks are going to try to crush you, others are going to step up, and we’re going to support you.`]], [`Alex Bores`, `NY-CD12 primary candidate (D)`, []]]}, [`politics`]],
   [1777666598622]: [
     1777666598622, [`us`], `Israel's Center leadership Seeks to win back Democrats`, 
     {quotes: [
@@ -262,7 +262,7 @@ are going to crush you, While some of these folks are going to try to crush you,
         [
           `In Israel, the overwhelming perspective portrayed by everybody, whether it’s Netanyahu or the mainstream media, is Democrats as having become just irreparably, irredeemably anti-Israel`, 
           `Between Trump and Netanyahu, they’re turning the whole concept of liberal democracy on its head, both for America and Israel, calling into question whether the world runs on that currency anymore.`]], 
-      ]}]
+      ]}, [`politics`]]
 }
 
 const Mug = {

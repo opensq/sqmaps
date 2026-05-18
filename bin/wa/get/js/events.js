@@ -1,5 +1,7 @@
 `use strict`;
 
+const DAY = new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`).valueOf();
+
 class Event {
 
   listen (Arg) { 
@@ -42,7 +44,7 @@ class Event {
         SVG.select(`g`).attr(`fill`, `#f2f3f0`).attr(`stroke`, `#000`).style(`stroke-width`, 1);
 
         let ts = new Date().valueOf();
-
+/**
         io().emit(`data`, [ts, Arg.ts]);
 
         io().on(`data`, Obj => {
@@ -282,6 +284,7 @@ class Event {
             }
           }
         });
+**/
       }).catch(error => {throw error});
 
   }
@@ -289,7 +292,7 @@ class Event {
   app (Arg) {
 
     let PAIR = [`AUD-USD`, `EUR-USD`, `GBP-USD`, `NZD-USD`, `USD-CAD`, `USD-CHF`, `USD-NOK`, `USD-SEK`], TICK = {}, Y = [];
-
+/**
     io().on(`Y24`, Y24 => {
 
       Y24[0].forEach(AB => {
@@ -307,14 +310,14 @@ class Event {
         } 
       });
     });
-
+**/
     let PA = Tools.typen(Tools.coats(PAIR)), i = 0;
 
-    setInterval(() => {console.log(TICK)
-
+    setInterval(() => {
+      
       if (i > PAIR.length) {i = 0}
 
-      if (TICK[PAIR[i]]) {console.log(i)
+      if (TICK[PAIR[i]]) {
 
         if (document.querySelector(`#asset`)) {
 

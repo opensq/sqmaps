@@ -140,7 +140,7 @@ body, button, input, textarea {
 }
 
 body {  
-  font-family: eweb;
+  font-family: aspg;
   font-size: 11.88px;
   font-weight: 300;
 }
@@ -597,7 +597,24 @@ section a {color: #000; font-weight: 300;}
 
 section a:hover {text-decoration: underline;}
 
+#ylva h1 {text-transform: uppercase; font-size: 8.88px}
+
 @media (min-width: 600px) {}
+
+@media (min-width: 920px) {
+
+  #ylva {  
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  #ylva .s0 {padding: 12px 2px;width: 40%}
+
+  #ylva .s2 {padding: 12px 12px;width: 30%}
+}
 
 @media (max-width: 920px) {}
 
@@ -605,11 +622,10 @@ section a:hover {text-decoration: underline;}
 
 @media (max-width: 599px) {
 
-  .unsqueeze {align-items: unset; flex: unset;}
+  #ylva .s0 {padding: 12px 12px;width: 100%}
 
-  .foot {width: 50%}
+  #ylva .s2 {padding: 12px 12px;width: 100%}
 
-  .wallet-text {padding: 6px 8px; font-size: 11px; text-align: center;}
 }
 
 @media (max-width: 540px) {
