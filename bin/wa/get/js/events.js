@@ -292,6 +292,32 @@ class Event {
   app (Arg) {
 
     let PAIR = [`AUD-USD`, `EUR-USD`, `GBP-USD`, `NZD-USD`, `USD-CAD`, `USD-CHF`, `USD-NOK`, `USD-SEK`], TICK = {}, Y = [];
+
+    io().on(`Y24`, Spot => {
+
+      let Plot = {};
+
+      Spot[0].forEach(AB => { 
+
+        Plot[AB[0]] = [AB[1]]; 
+
+        if (document.querySelector(`#${AB[0]}`)) document.querySelector(`#${AB[0]} #COST`).innerHTML = AB[1];
+
+        let P24 = [];console.log(Spot)
+
+        Spot[1][AB[0]].forEach(XY => {
+
+          if (XY[1] > (new Date().valueOf() - 3600000*24) - 3000 && XY[1] < (new Date().valueOf() - 3600000*24) + 3000) P24.push(XY);
+        });
+
+        if (P24.length > 0) {
+
+          if (document.querySelector(`#${AB[0]} #MOD`)) document.querySelector(`#${AB[0]} #MOD`).innerHTML = `${(((AB[1] - P24[0][0])/AB[1])*100).toFixed(2)}%`
+
+          if (document.querySelector(`#${AB[0]} #MOD`)) document.querySelector(`#${AB[0]} #MOD`).style.color = (AB[1] > parseFloat(P24[0][0]))? `#02ff02`: `red`;
+        }
+      });
+    });
 /**
     io().on(`Y24`, Y24 => {
 
@@ -310,7 +336,7 @@ class Event {
         } 
       });
     });
-**/
+/**
     let PA = Tools.typen(Tools.coats(PAIR)), i = 0;
 
     setInterval(() => {
@@ -336,7 +362,7 @@ class Event {
       i++
 
     }, 4000);
-
+**/
     document.querySelectorAll(`.atxt`).forEach(VAR => {
 
       this.listen([VAR, `click`, S => {

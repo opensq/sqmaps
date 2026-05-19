@@ -171,14 +171,32 @@ let Models = {
 
     main: () => {
 
+      let DOM = [[]];
+
+      let Pair = [`AUD-USD`, `EUR-USD`, `GBP-USD`, `NZD-USD`, `USD-CAD`, `USD-CHF`, `USD-NOK`, `USD-SEK`];
+
+      Pair.forEach(b => {
+
+        DOM[0].push([`div`, {id: b, class: `_gxM _geQ`, style: {[`align-items`]: `baseline`, [`font-size`]: `${8.88}px`, [`margin-left`]: `${12}px`}}, 
+          [[`a`, {href: `https://sojava.xyz/trade/${b.replace(`-`, `_`)}`, target: `blank`, style: {color: `#fff`, [`font-family`]: ``, [`letter-spacing`]: `${.88}px`, [`white-space`]: `nowrap`}}, b.replace(`-`, `/`)],
+          [`span`, {id: `COST`, style: {[`letter-spacing`]: `${.65}px`, [`font-family`]: `insvg`, [`font-size`]: `${10.48}px`, [`margin`]: `${0}px ${6}px ${0}px`}}],
+          [`span`, {id: `MOD`, style: {[`letter-spacing`]: `${.65}px`, [`font-family`]: `insvg`, [`font-size`]: `${10.48}px`}}, ``]]]);
+      });
+
       return [`main`, {style: {color: `#fff`}}, 
         [[`header`, {style: {background: `#0c0f0c`, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
           [[`div`, {class: `_gxM _geQ`, style: {margin: `auto`, [`max-width`]: `${1400}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
-            [[`a`, {href: `/`, style: {[`font-family`]: `consolas`, [`font-size`]: `${24.88}px`, width: `max-content`}}, 
+            [[`a`, { href: `/`, style: {[`font-family`]: `consolas`, [`font-size`]: `${24.88}px`, width: `max-content`}}, 
               [[`svg`, {vewbox: `0 0 24 24`, style: {[`font-weight`]: 600, height: `${24}px`, fill: `#fff`, width: `${24}px`}}, 
                 [[`text`, {x: 2, y: 23}, `0`], [`text`, {x: 17, y: 12, [`font-size`]: `${10.88}px`}, `2`]]]]], 
-            [`div`, {class: `_gZz`}, [[`a`, {href: `javascript:;`, style: {border: `${1}px solid #8f8f8f`, color: `#fff`, [`font-family`]: `aspg`, padding: `${8}px ${12}px`, [`text-transform`]: ``}}, `Buy Us Coffee`]]]]]]], 
-        [`div`, {id: `ylva`, class: ``, style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${1400}px`, width: `${100}%`}}, 
+            [`div`, {class: `_gZz`}, [[`a`, {class: `Au`, href: `javascript:;`, style: {border: `${1}px solid #2d2d2d`, color: `#fff`, [`font-family`]: `aspg`, padding: `${8}px ${12}px`, [`text-transform`]: ``}}, `Buy Us Coffee`]]]]], 
+          [`div`, {style: {border: `${1}px solid #2d2d2d`, [`border-left`]: 0, [`border-right`]: 0}}, 
+            [[`div`, {class: `_gxM _geQ`, style: {margin: `auto`, [`max-width`]: `${1400}px`, padding: `${0}px ${12}px`, width: `${100}%`}}, 
+              [[`a`, {class: `_gxM _geQ`, href: `javascript:;`, style: {[`border-right`]: `${1}px solid #2d2d2d`, color: `#fff`, display: `flex`, padding: `${6}px ${0}`, [`max-width`]: `max-content`}}, 
+                [[`span`, {style: {[`font-size`]: `${8.88}px`}}, `MARKETS`], 
+                [`svg`, {viewbox: `0 0 24 24`, height: `${8}px`, width: `${8}px`, style: {margin: `${0} ${8}px`}}, [[`path`, {fill: `none`, stroke: `#fff`, d: `M0 6 12 18 24 6`}]]]]], 
+              [`div`, {class: `_geQ _gxM`}, DOM[0]]]]]]]], 
+        [`div`, {id: `ylva`, class: ``, style: {margin: `${88}px auto ${24}px`, [`max-width`]: `${1400}px`, width: `${100}%`}}, 
           [[`section`, {class: `s2`}, [[`h1`, {}, `latest`], Models.app.latest()]], [`section`, {class: `s0`}, [[`h1`, {}, `top stories`]]], [`section`, {class: `s2`}, [[`h1`, {}, `finance`], Models.app.timeline()]]]]]];
     },
 

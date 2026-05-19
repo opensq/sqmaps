@@ -595,7 +595,7 @@ main section {/*border-bottom: 1px solid #e7e7e7;*/}
 
 section a {color: #000; font-weight: 300;}
 
-section a:hover {text-decoration: underline;}
+section a:hover, .Au:hover {text-decoration: underline;}
 
 #ylva h1 {text-transform: uppercase; font-size: 8.88px}
 
