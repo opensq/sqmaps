@@ -303,7 +303,7 @@ class Event {
 
         if (document.querySelector(`#${AB[0]}`)) document.querySelector(`#${AB[0]} #COST`).innerHTML = AB[1];
 
-        let P24 = [];console.log(Spot)
+        let P24 = [];
 
         Spot[1][AB[0]].forEach(XY => {
 

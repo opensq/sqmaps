@@ -226,6 +226,12 @@ class Route {
 Route = new Route();
 
 const SDATA = {
+  [1779311651377]: [
+    0, [`us`, `mn`], `OpenAI filing IPO paperwork imminent, per the WSJ.`, {quotes: []}, [`finance`, `IPOs`]],
+  [1779311148701]: [
+    0, [`us`, `mn`], `EV market downturn only unique to US as global market surges, per IEA report`, {quotes: []}, [`technology`, `transport`]],
+  [1779310516965]: [
+    0, [`us`, `mn`], `Trump Mobile customers say phones leaking personal info.`, {quotes: []}, [`technology`, `security`]],
   [1778082808368]: [
     0, [`global`, ``], `Iran war provides vindication for clean energy with signs of adoption boost.`, {quotes: []}, [`technology`]],
   [1778008426864]: [

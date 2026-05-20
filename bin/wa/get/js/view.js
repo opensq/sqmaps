@@ -159,7 +159,7 @@ let Models = {
 
         DOM[0].push([`div`, {class: `_gxM`, style: {[`font-size`]: `${9.88}px`, width: `${100}%`}}, 
           [[`div`, {}, 
-            [[`span`, {style: {[`algn-self`]: `center`}}, (parseInt(ts) > DAY)? ``: `${DT.toLocaleString().split(`/`)[0]}.${DT.toLocaleString().split(`/`)[1]}.`], 
+            [[`span`, {style: {[`algn-self`]: `center`}}, (parseInt(ts) > DAY)? `${DT.toTimeString().split(`:`)[0]}:${DT.toTimeString().split(`:`)[1]}`: `${DT.toLocaleString().split(`/`)[0]}.${DT.toLocaleString().split(`/`)[1]}.`], 
             [`span`, {style: {[`margin`]: `${8}px`, background:(i === Situ.length - 1)? ``: `#3a3a3a`, height: `${50}px`, width: `${1}px`}}]]], 
           [`div`, {style: {flex: 1, [`margin-left`]: `${12}px`, width: `calc(${30}vw - ${53}px)`}}, 
             [[`span`, {style: {[`text-transform`]: `capitalize`}}, SDATA[ts][4][0]], 
@@ -178,9 +178,9 @@ let Models = {
       Pair.forEach(b => {
 
         DOM[0].push([`div`, {id: b, class: `_gxM _geQ`, style: {[`align-items`]: `baseline`, [`font-size`]: `${8.88}px`, [`margin-left`]: `${12}px`}}, 
-          [[`a`, {href: `https://sojava.xyz/trade/${b.replace(`-`, `_`)}`, target: `blank`, style: {color: `#fff`, [`font-family`]: ``, [`letter-spacing`]: `${.88}px`, [`white-space`]: `nowrap`}}, b.replace(`-`, `/`)],
-          [`span`, {id: `COST`, style: {[`letter-spacing`]: `${.65}px`, [`fnt-family`]: `insvg`, [`fnt-size`]: `${10.48}px`, [`margin`]: `${0}px ${6}px ${0}px`}}],
-          [`span`, {id: `MOD`, style: {[`letter-spacing`]: `${.65}px`, [`fnt-family`]: `insvg`, [`fnt-size`]: `${10.48}px`}}, ``]]]);
+          [[`a`, {href: `https://sojava.xyz/trade/${b.replace(`-`, `_`)}`, target: `blank`, style: {color: `#fff`, [`letter-spacing`]: `${.88}px`, [`white-space`]: `nowrap`}}, b.replace(`-`, `/`)],
+          [`span`, {id: `COST`, style: {[`letter-spacing`]: `${.65}px`, [`font-size`]: `${8.88}px`, [`margin`]: `${0}px ${6}px ${0}px`}}],
+          [`span`, {id: `MOD`, style: {[`letter-spacing`]: `${.65}px`, [`font-size`]: `${8.88}px`}}, ``]]]);
       });
 
       return [`main`, {style: {color: `#fff`}}, 
@@ -251,7 +251,7 @@ let Models = {
 
         DOM[0].push([`div`, {class: `_gxM`, style: {[`font-size`]: `${9.88}px`, width: `${100}%`}}, 
           [[`div`, {}, 
-            [[`span`, {style: {[`algn-self`]: `center`}}, (parseInt(ts) > DAY)? ``: `${DT.toLocaleString().split(`/`)[0]}.${DT.toLocaleString().split(`/`)[1]}.`], 
+            [[`span`, {style: {[`algn-self`]: `center`}}, (parseInt(ts) > DAY)? `${DT.toTimeString().split(`:`)[0]}:${DT.toTimeString().split(`:`)[1]}`: `${DT.toLocaleString().split(`/`)[0]}.${DT.toLocaleString().split(`/`)[1]}.`], 
             [`span`, {style: {[`margin`]: `${8}px`, background:(i === Situ.length - 1)? ``: `#3a3a3a`, height: `${50}px`, width: `${1}px`}}]]], 
           [`div`, {style: {flex: 1, [`margin-left`]: `${12}px`, width: `calc(${30}vw - ${53}px)`}}, 
             [[`span`, {style: {[`text-transform`]: `capitalize`}}, SDATA[ts][4][1]], 
