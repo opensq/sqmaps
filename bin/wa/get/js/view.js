@@ -179,8 +179,8 @@ let Models = {
 
         DOM[0].push([`div`, {id: b, class: `_gxM _geQ`, style: {[`align-items`]: `baseline`, [`font-size`]: `${8.88}px`, [`margin-left`]: `${12}px`}}, 
           [[`a`, {href: `https://sojava.xyz/trade/${b.replace(`-`, `_`)}`, target: `blank`, style: {color: `#fff`, [`font-family`]: ``, [`letter-spacing`]: `${.88}px`, [`white-space`]: `nowrap`}}, b.replace(`-`, `/`)],
-          [`span`, {id: `COST`, style: {[`letter-spacing`]: `${.65}px`, [`font-family`]: `insvg`, [`font-size`]: `${10.48}px`, [`margin`]: `${0}px ${6}px ${0}px`}}],
-          [`span`, {id: `MOD`, style: {[`letter-spacing`]: `${.65}px`, [`font-family`]: `insvg`, [`font-size`]: `${10.48}px`}}, ``]]]);
+          [`span`, {id: `COST`, style: {[`letter-spacing`]: `${.65}px`, [`fnt-family`]: `insvg`, [`fnt-size`]: `${10.48}px`, [`margin`]: `${0}px ${6}px ${0}px`}}],
+          [`span`, {id: `MOD`, style: {[`letter-spacing`]: `${.65}px`, [`fnt-family`]: `insvg`, [`fnt-size`]: `${10.48}px`}}, ``]]]);
       });
 
       return [`main`, {style: {color: `#fff`}}, 
