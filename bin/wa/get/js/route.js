@@ -189,6 +189,17 @@ class Route {
       Event.app()
     }
 
+    if (State.length === 4 && State[3] === `donate`) {
+
+      document.title = `Donate | Opensq`;
+
+      View.pop();
+
+      View.DOM([`#app`, [Models.app.coffee()]]);
+
+      Event.app();
+    }
+
     if (State.length === 5) {
 
       if (SDATA[State[4]] && State[3] === `data`) {

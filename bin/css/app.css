@@ -508,49 +508,7 @@ body {
 
 ._wrap_202203262208 #coin-meta, ._wrap_202203262208 #pittools, ._wrap_202203262208 #take { padding-left: 15px; }
 
-#reals a, #reals a:visited, #reals span { color: #5841d8; font-weight: 600; cursor: pointer; }
-
-#pitmove span { width: 100%; padding: 12px 0; color: #1bd401; font-size: 13px; font-weight: 600; opacity: .3; cursor: pointer; text-align: center; }
-
-#pittype span {padding: 1px 8px; line-height: 13px; color: #1bd401; font-size: 12px; font-weight: 300; opacity: .3; cursor: pointer; }
-
 .sort + .sort { border-left: 1px solid #a6a6a6 }
-
-#pitamount input { width: 65%; font-family: geometria; font-size: 12px; text-align: right;}
-
-#pittile span {/*padding: 1px 8px; line-height: 13px; color: #1bd401; */font-size: 12px; opacity: .3; }
-
-#pitmoves span, .asset {font-family: geometria; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-
-#buy {width: 65%;}
-
-#buyline {width: 35%; /*padding-left: 24px*/}
-
-#buy div {align-items: start}
-
-.parallelo { padding: 12px 24px; background: #1bd401; color: #fff; font-family: geometria; font-size: 13px; cursor: pointer; text-align: center; }
-
-#quant, #bitpitsvg {width: 60%}
-
-#quantsvg, #bitpit {width: 40%}
-
-#bitpitsvg {margin-bottom: 24px; padding-right: 96px}
-
-.foot {width: 33.333333%; margin-bottom: 24px}
-
-.foot-title {margin-bottom: 12px; font-weight: 600; opacity: .5}
-
-.foot a, .foot a:visited {width: max-content; margin-top: 6px; font-size: 11px; font-weight: 600; color: #262626}
-
-#foot {padding: 24px; color: #262626;}
-
-#holds #foot {background: #262626; color: #fff;}
-
-#holds #foot .foot a {color: #fff; font-size: 12px; font-weight: 300}
-
-.spot-title-box {width: 30%}
-
-.spot-margin-box, .spot-wallet-box {width: 35%}
 
 .flex-z {
   -webkit-box-flex: 1;
@@ -563,39 +521,11 @@ body {
   justify-content: flex-end;
 }
 
-.spot-margin-box, .spot-wallet-box, .trail-z-box {padding-left: 24px}
-
-.trail-a-box {width: 40%}
-
-.trail-z-box {width: 60%}
-
-.trail-svg {/*margin-right: 12px*/}
-
-.view-box {position: absolute; top: 0; right: 0; bottom: 0; left: 0}
-
-.title-box {height: 33px; border-bottom: 1px solid #ffffff26}
-
-.top-slide {line-height: 13px; margin-left: 8px; font-family: geometria;}
-
-.wallet-text {padding: 6px 24px; background: #f4f4f4; border-radius: 20px; font-family: consola; font-size: 13px; color: #48007c;}
-
-#vialet, #tx {font-family: consola; font-size: 11px}
-
-#tx, #tx:visited {color: #48007c;}
-
-.atxt {cursor: pointer;}
-
-.atxt:hover, footer a:hover, .tally-txt:hover {text-decoration: underline;}
-
-main section {/*border-bottom: 1px solid #e7e7e7;*/}
-
-#slack {border: 1px solid #a6a6a6;border-radius: 16px}
-
-#slack section + section { border-top: 1px solid #a6a6a6 }
-
 section a {color: #000; font-weight: 300;}
 
-section a:hover, .Au:hover {text-decoration: underline;}
+section a:hover, .Au:hover, #ix a:hover {text-decoration: underline;}
+
+#ix a:hover {opacity: .4}
 
 #ylva h1 {text-transform: uppercase; font-size: 8.88px}
 

@@ -293,7 +293,7 @@ class Event {
 
     let PAIR = [`AUD-USD`, `EUR-USD`, `GBP-USD`, `NZD-USD`, `USD-CAD`, `USD-CHF`, `USD-NOK`, `USD-SEK`], TICK = {}, Y = [];
 
-    io().on(`Y24`, Spot => {
+    /**/io().on(`Y24`, Spot => {
 
       let Plot = {};
 
@@ -317,7 +317,7 @@ class Event {
           if (document.querySelector(`#${AB[0]} #MOD`)) document.querySelector(`#${AB[0]} #MOD`).style.color = (AB[1] > parseFloat(P24[0][0]))? `#02ff02`: `red`;
         }
       });
-    });
+    });/**/
 /**
     io().on(`Y24`, Y24 => {
 

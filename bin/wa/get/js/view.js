@@ -143,6 +143,31 @@ let Models = {
         [`div`, {id: `slack`, style: {margin: `${50}px auto ${24}px`, [`max-width`]: `${540}px`, width: `${100}%`}}, DOM[0]], Models.app.tick()]];
     },
 
+    coffee: () => {
+
+      let DOM = [[]];
+
+      let Via = [`paypal`, `google pay`, `bitcoin`, `USDT`];
+
+      Via.forEach(i => {
+
+        DOM[0].push([`div`, {style: {background: (i === `bitcoin`)? `#0c0f0c`: ``, cursor: `pointer`, padding: `${12}px`}}, 
+          [[`span`, {style: {[`font-size`]: `${8.88}px`, overflow: `hidden`, [`text-overflow`]: `ellipsis`, [`text-transform`]: `capitalize`, [`white-space`]: `nowrap`}}, i]]])
+      });
+
+      return [`main`, {style: {color: `#fff`}},  
+        [[`header`, {style: {background: `#0c0f0c`, position: `fixed`, width: `${100}%`, [`z-index`]: 1}}, 
+          [[`div`, {class: `_gxM _geQ`, style: {margin: `auto`, [`max-width`]: `${720}px`, padding: `${12}px ${12}px`, width: `${100}%`}}, 
+            [[`h1`, {style: {[`font-size`]: `${16.88}px`, [`text-transform`]: `uppercase`}}, `Build Opensq Infrastructure`]]]]], 
+        [`div`, {style: {margin: `${57}px auto`, [`max-width`]: `${720}px`, padding: `${0} ${12}px`, width: `${100}%`}}, 
+          [[`p`, {}, `We are an independent progressive nonprofit collective of data engineeers who rely on the generosity of our donors to source & develop free informative data journalism. 
+            Our output is specifically tailored for consumers who would find it instructive in the pursuit of a socially & economically progressive global policy.`], 
+          [`div`, {style: {[`margin-top`]: `${24}px`}}, 
+            [[`div`, {class: `_gxM`, style: {border: `${1}px solid #2d2d2d`}}, 
+              [[`div`, {style: {background: `#161c16`, width: `${20}%`}}, DOM[0]], 
+              [`div`, {style: {[`font-size`]: `${9.88}px`, width: `${80}%`, padding: `${12}px`}}, [[`span`, {}, `Amount`]]]]]]]]]]];
+    },
+
     latest: () => {
 
       let DOM = [[]];
@@ -189,15 +214,44 @@ let Models = {
             [[`a`, { href: `/`, style: {[`font-family`]: `consolas`, [`font-size`]: `${24.88}px`, width: `max-content`}}, 
               [[`svg`, {vewbox: `0 0 24 24`, style: {[`font-weight`]: 600, height: `${24}px`, fill: `#fff`, width: `${24}px`}}, 
                 [[`text`, {x: 2, y: 23}, `0`], [`text`, {x: 17, y: 12, [`font-size`]: `${10.88}px`}, `2`]]]]], 
-            [`div`, {class: `_gZz`}, [[`a`, {class: `Au`, href: `javascript:;`, style: {border: `${1}px solid #2d2d2d`, color: `#fff`, [`font-family`]: `aspg`, padding: `${8}px ${12}px`, [`text-transform`]: ``}}, `Buy Us Coffee`]]]]], 
+            [`div`, {class: `_gZz`}, [[`a`, {class: `Au`, href: `/donate`, style: {border: `${1}px solid #2d2d2d`, color: `#fff`, [`font-family`]: `aspg`, padding: `${8}px ${12}px`, [`text-transform`]: ``}}, `Buy Us Coffee`]]]]], 
           [`div`, {style: {border: `${1}px solid #2d2d2d`, [`border-left`]: 0, [`border-right`]: 0}}, 
             [[`div`, {class: `_gxM _geQ`, style: {margin: `auto`, [`max-width`]: `${1400}px`, padding: `${0}px ${12}px`, width: `${100}%`}}, 
               [[`a`, {class: `_gxM _geQ`, href: `javascript:;`, style: {[`border-right`]: `${1}px solid #2d2d2d`, color: `#fff`, display: `flex`, padding: `${6}px ${0}`, [`max-width`]: `max-content`}}, 
                 [[`span`, {style: {[`font-size`]: `${8.88}px`}}, `MARKETS`], 
                 [`svg`, {viewbox: `0 0 24 24`, height: `${8}px`, width: `${8}px`, style: {margin: `${0} ${8}px`}}, [[`path`, {fill: `none`, stroke: `#fff`, d: `M0 6 12 18 24 6`}]]]]], 
-              [`div`, {class: `_geQ _gxM`}, DOM[0]]]]]]]], 
+              [`div`, {id: `ix`, class: `_geQ _gxM`}, DOM[0]]]]]]]], 
         [`div`, {id: `ylva`, class: ``, style: {margin: `${88}px auto ${24}px`, [`max-width`]: `${1400}px`, width: `${100}%`}}, 
           [[`section`, {class: `s2`}, [[`h1`, {}, `latest`], Models.app.latest()]], [`section`, {class: `s0`}, [[`h1`, {}, `top stories`]]], [`section`, {class: `s2`}, [[`h1`, {}, `finance`], Models.app.timeline()]]]]]];
+    },
+
+    timeline: () => {
+
+      let DOM = [[]];
+
+      let Situ = [];
+
+      for (let ts in SDATA) {
+
+        if (SDATA[ts][4][0] === `finance`) { Situ.push(ts) }
+      }
+
+      Situ = Situ.sort((A, B) => {return B - A});
+
+      Situ.forEach((ts, i)=> {
+
+        let DT = new Date(parseInt(ts));
+
+        DOM[0].push([`div`, {class: `_gxM`, style: {[`font-size`]: `${9.88}px`, width: `${100}%`}}, 
+          [[`div`, {}, 
+            [[`span`, {style: {[`algn-self`]: `center`}}, (parseInt(ts) > DAY)? `${DT.toTimeString().split(`:`)[0]}:${DT.toTimeString().split(`:`)[1]}`: `${DT.toLocaleString().split(`/`)[0]}.${DT.toLocaleString().split(`/`)[1]}.`], 
+            [`span`, {style: {[`margin`]: `${8}px`, background:(i === Situ.length - 1)? ``: `#3a3a3a`, height: `${50}px`, width: `${1}px`}}]]], 
+          [`div`, {style: {flex: 1, [`margin-left`]: `${12}px`, width: `calc(${30}vw - ${53}px)`}}, 
+            [[`span`, {style: {[`text-transform`]: `capitalize`}}, SDATA[ts][4][1]], 
+            [`a`, {href: `javascript:;`, style: {[`align-content`]: `center`, color: `#fff`, height: `${50}px`}}, SDATA[ts][2]]]]]]);
+      });
+
+      return [`div`, {style: {[`margin-top`]: `${24}px`}}, DOM[0]]
     },
 
     data: (Arg) => {
@@ -230,35 +284,6 @@ let Models = {
             [[`a`, {href: `/data/${Arg[0]}`, style: {padding: `${10}px ${12}px`}}, SDATA[Arg[0]][2]], (Models.SVG[Arg[0]])? Models.SVG[Arg[0]][0](): [],
             [`div`, {class: ``, style: {margin: `${0} ${12}px ${10}px`}}, DOM[0]], 
             [`div`, {class: `_gxM _geQ`, style: {margin: `${0} ${12}px ${10}px`}}, [[`span`, {style: {color: `#7d7d7d`, [`font-family`]: `aspg`, [`font-weight`]: 300}}, new Date(parseInt(Arg[0])).toLocaleString()]]]]]]]]];
-    },
-
-    timeline: () => {
-
-      let DOM = [[]];
-
-      let Situ = [];
-
-      for (let ts in SDATA) {
-
-        if (SDATA[ts][4][0] === `finance`) { Situ.push(ts) }
-      }
-
-      Situ = Situ.sort((A, B) => {return B - A});
-
-      Situ.forEach((ts, i)=> {
-
-        let DT = new Date(parseInt(ts));
-
-        DOM[0].push([`div`, {class: `_gxM`, style: {[`font-size`]: `${9.88}px`, width: `${100}%`}}, 
-          [[`div`, {}, 
-            [[`span`, {style: {[`algn-self`]: `center`}}, (parseInt(ts) > DAY)? `${DT.toTimeString().split(`:`)[0]}:${DT.toTimeString().split(`:`)[1]}`: `${DT.toLocaleString().split(`/`)[0]}.${DT.toLocaleString().split(`/`)[1]}.`], 
-            [`span`, {style: {[`margin`]: `${8}px`, background:(i === Situ.length - 1)? ``: `#3a3a3a`, height: `${50}px`, width: `${1}px`}}]]], 
-          [`div`, {style: {flex: 1, [`margin-left`]: `${12}px`, width: `calc(${30}vw - ${53}px)`}}, 
-            [[`span`, {style: {[`text-transform`]: `capitalize`}}, SDATA[ts][4][1]], 
-            [`a`, {href: `javascript:;`, style: {[`align-content`]: `center`, color: `#fff`, height: `${50}px`}}, SDATA[ts][2]]]]]]);
-      });
-
-      return [`div`, {style: {[`margin-top`]: `${24}px`}}, DOM[0]]
     },
 
     tick: (Arg) => {
