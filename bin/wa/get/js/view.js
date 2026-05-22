@@ -152,7 +152,7 @@ let Models = {
       Via.forEach(i => {
 
         DOM[0].push([`div`, {style: {background: (i === `bitcoin`)? `#0c0f0c`: ``, cursor: `pointer`, padding: `${12}px`}}, 
-          [[`span`, {style: {[`font-size`]: `${8.88}px`, overflow: `hidden`, [`text-overflow`]: `ellipsis`, [`text-transform`]: `capitalize`, [`white-space`]: `nowrap`}}, i]]])
+          [[`span`, {style: {[`font-size`]: `${10.88}px`, overflow: `hidden`, [`text-overflow`]: `ellipsis`, [`text-transform`]: `capitalize`, [`white-space`]: `nowrap`}}, i]]])
       });
 
       return [`main`, {style: {color: `#fff`}},  
@@ -165,7 +165,41 @@ let Models = {
           [`div`, {style: {[`margin-top`]: `${24}px`}}, 
             [[`div`, {class: `_gxM`, style: {border: `${1}px solid #2d2d2d`}}, 
               [[`div`, {style: {background: `#161c16`, width: `${20}%`}}, DOM[0]], 
-              [`div`, {style: {[`font-size`]: `${9.88}px`, width: `${80}%`, padding: `${12}px`}}, [[`span`, {}, `Amount`]]]]]]]]]]];
+              [`div`, {style: {[`font-size`]: `${9.88}px`, width: `${80}%`, padding: `${12}px`}}, 
+                [[`span`, {}, `Amount`], 
+                [`div`, {style: {background: `#161c16`, [`margin-top`]: `${12}px`, padding: `${12}px`}}, 
+                  [[`div`, {class: ``}, 
+                    [[`div`, {class: `_gZz`, style: {[`align-items`]: `baseline`, [`font-size`]: `${11.88}px`}}, 
+                      [[`div`, {style: {[`margin-right`]: `${8}px`, [`text-align`]: `right`}}, 
+                        [[`input`, {placeholder: `0.00`, style: {background: `none`, border: `none`, color: `#fff`, [`font-family`]: `aspg`, [`font-size`]: `${16.88}px`, outline: `none`, padding: 0, [`text-align`]: `right`}}], 
+                        [`span`, {style: {[`margin-top`]: `${4}px`}}, `0`]]], 
+                      [`div`, {style: {color: `#7d7d7d`}}, [[`span`, {}, `USD`], [`span`, {style: {[`margin-top`]: `${4}px`}}, `BTC`]]]]]]]]], 
+                [`div`, {style: {[`margin-top`]: `${12}px`}}, 
+                  [[`span`, {}, `Name`], 
+                  [`div`, {style: {background: `#161c16`,[`margin-top`]: `${12}px`, padding: `${12}px`}}, 
+                    [[`input`, {style: {background: `none`, border: `none`, color: `#fff`, [`font-family`]: `aspg`, [`font-size`]: `${10.88}px`, outline: `none`, padding: 0, [`text-align`]: ``}}]]]]],
+                [`div`, {style: {[`margin-top`]: `${12}px`}}, 
+                  [[`span`, {}, `Email`], 
+                  [`div`, {style: {background: `#161c16`,[`margin-top`]: `${12}px`, padding: `${12}px`}}, 
+                    [[`input`, {style: {background: `none`, border: `none`, color: `#fff`, [`font-family`]: `aspg`, [`font-size`]: `${10.88}px`, outline: `none`, padding: 0, [`text-align`]: ``}}]]]]], 
+                [`div`, {style: {[`margin-top`]: `${12}px`}}, 
+                  [[`span`, {}, `BTC Wallet/Sender Address`], 
+                  [`div`, {style: {background: `#161c16`,[`margin-top`]: `${12}px`, padding: `${12}px`}}, 
+                    [[`input`, {placeholder: `paste address`, style: {background: `none`, border: `none`, color: `#fff`, [`font-family`]: `aspg`, [`font-size`]: `${10.88}px`, outline: `none`, padding: 0, [`text-align`]: ``}}]]]]],
+                [`div`, {style: {[`margin-top`]: `${12}px`}}, 
+                  [[`span`, {}, `Donation Address`], 
+                  [`div`, {class: `_gxM geQ`, style: {background: `#161c16`,[`margin-top`]: `${12}px`, padding: `${12}px`}}, 
+                    [[`span`, {style: {cursor: `pointer`, display: `block`, flex: 1, [`font-size`]: `${10.88}px`, overflow: `hidden`, [`text-decoration`]: `underline`, [`text-overflow`]: `ellipsis`}}, `351qAFyJQqGs6tBZueMVqFqoYUpNCAZZDp`], 
+                    [`svg`, {class: `_gZz`, viewbox: `0 0 24 24`, style: {cursor: `pointer`, display: `flex`, height: `${14}px`, margin: `0 ${8}px`, [`max-width`]: `${14}px`}}, 
+                      [[`path`, {fill: `none`, stroke: `#5dad69`, [`stroke-width`]: 2, d: `M2 22 16 22 16 6 2 6z M8 6 8 2 22 2 22 18 16 18`}]]]]]]],
+                [`div`, {style: {[`margin-top`]: `${12}px`}}, 
+                  [[`div`, {style: {background: `#758a75`,[`margin-top`]: `${12}px`, padding: `${12}px`}}, 
+                    [[`a`, {class: ``, href: `javascript:;`, style: {color: `#000`, display: `block`, flex: 1, [`font-size`]: `${10.88}px`, overflow: `hidden`, [`text-align`]: `center`, [`text-overflow`]: `ellipsis`}}, `I'VE SENT MY DONATION`]]]]],
+                [`div`, {class: `_gxM _geQ`, style: {margin: `${12}px ${0}`}}, 
+                  [[`svg`, {viewbox: `0 0 24 24`, height: `${18}px`, width: `${18}px`, style: {cursor: `pointer`, margin: `${0} ${0}px`}}, 
+                    [[`path`, {fill: `none`, stroke: `#fff`, d: `M2 2 22 2 22 22 2 22z`}], 
+                    [`path`, {fill: `none`, stroke: `#fff`, d: `M6 12 10 16 18 8`}]]], 
+                  [`div`, {class: `_eYG`, style: {[`margin-left`]: `${8}px`}}, [[`span`, {style: {color: `#7d7d7d`}}, `Don't display my name publicly on the donations`]]]]]]]]]]]]]]];
     },
 
     latest: () => {
