@@ -72,6 +72,15 @@ class Route {
             Sql.pulls(Raw => {
 
               if (Pulls.pull === `app`) { Arg[1].end(Tools.coats({})) }
+
+              if (Pulls.pull === `ledge`) {
+
+                Pulls[`ts`] = new Date().valueOf();
+
+                Pulls[`md`] = createHash(`md5`).update(`${Pulls.ts}`, `utf8`).digest(`hex`)
+
+                Sql.puts([`ledge`, Pulls, (Bill) => {Arg[1].end(Tools.coats({ts: Pulls.ts}))}]);
+              }
             });
           }
         }
@@ -97,7 +106,7 @@ class Route {
         }
       });
 
-      setInterval(() => {console.log(Tools.Y24)
+      setInterval(() => {
 
         let YValue = [];
 

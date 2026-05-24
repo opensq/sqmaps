@@ -299,6 +299,8 @@ class Event {
 
       Spot[0].forEach(AB => { 
 
+        if (AB[0] === `BTC-USD`) {Clients.BTC = AB[1]}
+
         Plot[AB[0]] = [AB[1]]; 
 
         if (document.querySelector(`#${AB[0]}`)) document.querySelector(`#${AB[0]} #COST`).innerHTML = AB[1];
@@ -363,13 +365,66 @@ class Event {
 
     }, 4000);
 **/
-    document.querySelectorAll(`.atxt`).forEach(VAR => {
 
-      this.listen([VAR, `click`, S => {
+    if (document.querySelector(`#donate`)) {
 
-        window.location = VAR.getAttribute(`url`);
+      this.listen([document.querySelector(`#float`), `keyup`, S => {
+
+      let Slot = this.getSource(S);
+
+      if (!parseInt(Slot.value)) {Slot.value = 0;}
+
+                    //if (Slot.id === `callSlot` && Slot.value.length > 11) { Slot.value = Slot.value.substr(0, 12) }
+
+      Slot.value = parseInt(Slot.value);
+
+      if (parseFloat(Clients.BTC) > 0 && Slot.value > 0) { document.querySelector(`#alias`).innerHTML = Slot.value/parseFloat(Clients.BTC) }
       }]);
-    });
+
+      this.listen([document.querySelector(`#copy`), `click`, S => {
+
+      navigator.clipboard.writeText(`351qAFyJQqGs6tBZueMVqFqoYUpNCAZZDp`);
+
+      document.querySelector(`#copy path`).style.strokeOpacity = .5;
+
+        setTimeout(() => { document.querySelector(`#copy path`).style.strokeOpacity = 1 }, 3000);
+      }]);
+
+      this.listen([document.querySelector(`#ledge`), `click`, S => {
+
+      let Values = [
+        (!Tools.slim(document.querySelector(`#float`).value))? false: Tools.slim(document.querySelector(`#float`).value), 
+        (!Tools.slim(document.querySelector(`#name`).value))? false: Tools.slim(document.querySelector(`#name`).value), 
+        (!Tools.slim(document.querySelector(`#email`).value))? false: Tools.slim(document.querySelector(`#email`).value), 
+        (!Tools.slim(document.querySelector(`#wallet`).value))? false: Tools.slim(document.querySelector(`#wallet`).value)];
+
+      if (Values[0] === false || Values[1] === false || Values[2] === false || Values[3] === false) return;
+
+      if (!parseFloat(Values[0]) > 0  || !parseFloat(document.querySelector(`#alias`).innerHTML) > 0) return;
+
+      let XHR = [];
+
+      XHR[0] = Tools.pull([
+        `/json/web/`, { 
+          email: Values[2], 
+          equiv: parseFloat(document.querySelector(`#alias`).innerHTML),
+          float: parseFloat(Values[0]),
+          name: Values[1], 
+          pull: `ledge`, wallet: Values[3]}]);
+
+      Values = [];
+
+      document.querySelector(`#float`).value = ``;
+
+      document.querySelector(`#alias`).innerHTML = `0`;
+
+      XHR[0].onload = () => {
+
+        XHR[1] = Tools.typen(XHR[0].response);
+      }
+      }]);
+
+    }
   }
 }
 
